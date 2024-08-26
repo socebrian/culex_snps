@@ -1,0 +1,60 @@
+#poster Vectro Kolymbari meeting
+sonia cebrian camison scebrian27@gmail.com/sonia.cebrian@ebd.csic.es
+SNPS culex pipiens - proyect ecogen
+1 july 2024
+
+
+First i will try to run PLINK only in march samples VCF file
+```bash
+VCF=data/file.vcf
+mkdir pca-marzo
+mkdir data-pca-marzo
+
+/opt/plink_1.9/plink_1.9 --vcf mar-raw_variants.snp.vcf.gz --allow-extra-chr --indep-pairwise 50 10 0.5  --out data-pca-marzo/data1.plink
+```
+Aedes albopictus - –indep-pairwise 50 10 0.1
+ref: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9685676/
+Aedes aegypti pruning using--indep-pairwise 50 kb 1 0.2)
+ref: https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2022.867231/full#B40
+
+Aedes albopictus –indep-pairwise option of PLINK 1.9 
+[3] with a window size of 100 variant counts, 50 as step and the r2max/2 value as a thresholdbased on the preliminary results on the LD estimates of Ae. albopictus as described in Kotsakiozi e al  [4]
+ref: https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0007554#sec022
+
+Culex pipiens - , we used the program PLINK v. 1.90b6.6 [67] to remove SNPs with a pairwise squared correlation (r2) greater than 50% within sliding windows of 50 SNPs at 10 SNP increments between windows [68].
+ref: https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-020-3879-8#Sec2
+
+culex pipiens - a pairwise squared correlation (r2) greater than 50% within sliding windows of 50 SNPs at 10 SNP increments between windows [51]. https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010689&rev=1#pntd.0010689.ref051
+
+los dos de culex referencian a un tio que hace poblaciones humanas con otros parametros...
+
+
+
+```bash
+/opt/plink_1.9/plink_1.9 --vcf mar-raw_variants.snp.vcf.gz --allow-extra-chr --exclude data-pca-marzo/data1.plink.prune.out --pca 'header' --out pca-marzo/data1.plink.pca
+```
+no data remaining after exclude
+
+pairwise i tried:
+50 1 0.2
+50 10 0.1
+50 1 0.1
+50 10 0.5
+50 10 0.8
+
+Cx. quinquefasciatus genome 579Mb approx
+Cx. pipiens genome 567Mb approx
+
+Ambiguous sex IDs written to pca-marzo/data1.plink.pca.nosex .
+Error: No variants remaining after --exclude.
+
+TODO ME EXCLUYE TODAS LAS VARIANTES. POR AHORA LO HAGO COMO MARI HIZO EL OTRO PREVIO, SIN PRUNING.
+
+hay que exportarlos como csv los eigen vectors and values
+
+###REMOVING INDICIDUALS WE DONT WANT
+
+vcftools --gzvcf mar-raw_variants.snp.vcf.gz --remove-indv PP1524  --recode --out filtered-mar-snps.vcf.gz
+
+scp "scebrian@161.111.228.96:/home/scebrian/poster-kolymbari/mar-raw_variants.snp.vcf.gz" 
+/home/mjruiz/trialCulex
