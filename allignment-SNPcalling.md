@@ -338,6 +338,9 @@ Using <bcftools view -H pipiens123_3_pop.bcf | wc -l>
 * chrom 3: 184,554,457 sites
 
 ### 7. Variant filtering (vcf env en poppy)
+
+NOTA: UPDATE VERSION DE BCFTOOLS A 1.21 ANTES DE REHACER ESTE PASO PARA FUTURAS MUESTARS
+
 To do a first check of the vcf I use the python notebook <explore_vcf_examples.ipynb>
 I do a frist filter of the bcf in which I filter out repetitions/TE that were detected by EarlGrey (FALTA PARTE DE COMO HICE LO DE EARL GRAY) and retain only sites that have a minimum of 1 read for one of the minor alleles.
 To do so I use <variant-filter1n.sh> (it removes repetitions and filter by  --min-ac 1).
