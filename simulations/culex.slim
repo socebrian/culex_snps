@@ -1,0 +1,185 @@
+initialize() {
+	initializeSLiMModelType("nonWF");
+	initializeSLiMOptions(dimensionality="xy");
+	initializeSex("A");
+	// One tick = one day
+	defaults = Dictionary(
+		"SEED", getSeed(),
+		"SD", 1000.0,         // sigma_D, dispersal distance (in meters)
+		// NOTE: interaction neighborhood might be kinda small? based on K, which is what season?
+		"SX", 20.0,           // sigma_X, interaction distance for measuring local density
+		"SM", 1000.0,         // sigma_M, mate choice distance
+		"SV", 1000.0,         // sigma_V, adult travel distance
+		"K", 0.002,           // carrying capacity per unit area of larvae
+		"XMIN", 2776.95 * 1000,  // map left boundary (originally 2775951.216m)
+		"XMAX", 3089.22 * 1000,   // map right boundary (originally 3089218.131m)
+		"YMIN", 1581.14 * 1000,  // map bottom boundary (originally 1581144.968m)
+		"YMAX", 1869.04 * 1000,  // map top boundary (originally 1869044.362m)
+		"ADULTSURVIVAL", "C:\\Users\\scebr\\iCloudDrive\\TESIS\\OBJ3. ECOGEN\\SLiM\\survival_p.csv" 
+		// "ADULTMORTALITY", 0.125, // probability of death per tick per adult
+
+		"JUVMORTALITY", 0.05, // base mortality for larvae per day
+		"FECUN", 5.0,         // average number of eggs per day per female adult
+		"MATURATIONTIME", 10, // minimum age (in days) when individuals can start mating
+		"RECORDTIME", 300,
+		"RECORDINTERVAL", 50,
+		"RUNTIME", 1000,
+		"L", 1e8,             // genome length 
+		"R", 1e-8,            // recombination rate
+		"MU", 0,              // mutation rate
+		"IMAGE_PATH", "C:\\Users\\scebr\\Documents\\culex_snps\\simulations\\raster-waterbody-grid2.png"
+		);
+		
+	// Set up parameters with a user-defined function
+	setupParams(defaults);
+	
+	// Set up constants that depend on externally defined parameters
+	defineConstant("WIDTH", XMAX - XMIN);
+	defineConstant("HEIGHT", YMAX - YMIN);
+	// A_m is expected population density of adults (see Appendix D)
+	// defineConstant("A_m", K * (1 - (ADULTMORTALITY / (FECUN / 2))^(1 / MATURATIONTIME)) / (1 - (ADULTMORTALITY / (FECUN / 2))^(1 - 1 / MATURATIONTIME)) * ADULTMORTALITY ^(-1 / MATURATIONTIME) * (FECUN / 2)^(1 - 1 / MATURATIONTIME));
+	// RHO is used to control density of juveniles (see Appendix D)
+	defineConstant("RHO", ((1 - JUVMORTALITY) * (FECUN / 2)^(1 / MATURATIONTIME) / ADULTMORTALITY ^ (1 / MATURATIONTIME) - 1) / (K + A_m * FECUN / 2));	
+	defineGlobal("PARAMS", defaults);
+	
+	setSeed(SEED);
+
+	// basic neutral genetics
+	initializeMutationRate(MU);	
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, L-1);
+	initializeRecombinationRate(R);
+	
+	// spatial competition
+	initializeInteractionType(1, "xy", reciprocal=T, maxDistance=3 * SX);
+	i1.setInteractionFunction("n", 1, SX);
+	i1.setConstraints("both", maxAge=MATURATIONTIME);
+	
+	// dioecious mating
+	initializeInteractionType(2, "xy", reciprocal=T, maxDistance=3 * SM);
+	i2.setInteractionFunction("n", 1, SM);
+	i2.setConstraints("receiver", sex="F", minAge=MATURATIONTIME+1);
+	i2.setConstraints("exerter", sex="M", minAge=MATURATIONTIME+1);
+}
+
+1 first() {
+	sim.addSubpop("p1", asInteger(K * WIDTH * HEIGHT));
+	p1.setSpatialBounds(c(XMIN, YMIN, XMAX, YMAX));
+	p1.individuals.setSpatialPosition(p1.pointUniform(p1.individualCount));
+	
+	mapImage = Image(IMAGE_PATH);
+	map = p1.defineSpatialMap("river", "xy", 1 - mapImage.floatK,
+		valueRange = c(0, 1), colors = c("black", "white"));
+	defineConstant("RIVER", map);
+	log_file_title = OUTBASE + "_sim_log.txt";
+	log = community.createLogFile(log_file_title, logInterval=1);
+	log.addCycle();
+	log.addCustomColumn('adults', 'p1.subsetIndividuals(minAge=MATURATIONTIME).size();');
+	log.addCustomColumn('juveniles', 'p1.subsetIndividuals(maxAge=MATURATIONTIME - 1).size();');
+	log.addCustomColumn('juveniles_density', 'i1.evaluate(p1);mean(i1.localPopulationDensity(p1.subsetIndividuals(maxAge=MATURATIONTIME - 1)));');
+	
+	adult_survival_df = readCSV("C:\\Users\\scebr\\iCloudDrive\\TESIS\\OBJ3. ECOGEN\\SLiM\\survival.csv");
+	defineConstant("ADULT_SURVIVAL", adult_survival_df.getValue("p"));
+}
+
+first() {
+	// preparation for the reproduction() callback
+	i2.evaluate(p1);
+}
+
+reproduction(p1, "F") {
+	mate = i2.drawByStrength(individual, 1);
+	if (mate.size())
+		subpop.addCrossed(individual, mate, count=rpois(1, FECUN));
+}
+
+early() {
+	// Disperse offspring
+	offspring = p1.subsetIndividuals(maxAge=0);
+	pos = offspring.spatialPosition;
+	pos = RIVER.sampleNearbyPoint(pos, 3 * SD, "n", SD);
+	offspring.setSpatialPosition(pos);
+	
+	// Adult movement
+	adults = p1.subsetIndividuals(minAge = MATURATIONTIME + 1);
+	p1.deviatePositions(adults, "reprising", INF, "n", SV);
+	
+	// fitness depends on river map and river factor
+	// Rain factor increases carrying capacity everywhere by K at its peak
+	// (map value oscillates btw 0 and 1 outside river, and btw 1 and 2 in river)	
+	rain_factor = (-cos(community.tick / 365 * 2 * PI) + cos((community.tick - 1)/365 * 2 * PI)) * 0.5;
+	RIVER.add(rain_factor);
+	RIVER.add(abs(min(0.0, min(RIVER.gridValues())))); // prevent map value becoming negative
+	catn("min");
+	catn(min(RIVER.gridValues()));
+	catn("max");
+	catn(max(RIVER.gridValues()));
+	
+	// density-dependent fitness scaling only applies to larvae
+	i1.evaluate(p1);
+	juveniles = p1.subsetIndividuals(maxAge = MATURATIONTIME - 1);
+	competition = i1.localPopulationDensity(juveniles); // local pop density
+	map_val_inds = RIVER.mapValue(juveniles.spatialPosition); // map value
+	RHO_inds = RHO / map_val_inds;
+	juveniles.fitnessScaling = (1 - JUVMORTALITY) / (1 + RHO_inds * competition); // probability of survival
+	
+	// adults have fixed mortality independent of location
+	adults = p1.subsetIndividuals(minAge = MATURATIONTIME);
+	// adults.fitnessScaling = 1 - ADULTMORTALITY;
+	adultsurv = readCSV(ADULTSURVIVAL);
+	ADULT_SURVIVAL= (adultsurv.getValue("p"));
+	day = asInteger(community.tick % 365);
+	adults.fitnessScaling = ADULT_SURVIVAL[day];
+	catn("tick is:" + community.tick + "; day is: " + day + "; survival is: " + ADULT_SURVIVAL[day]);
+	
+	// color the adults blue and juveniles red
+	juveniles.color = '#FF0000';
+	adults.color = '#0000FF';
+}
+
+seq(RECORDTIME, RUNTIME, RECORDINTERVAL) late() {
+	lines = "population, x, y";
+	adults = p1.subsetIndividuals(minAge = MATURATIONTIME + 1);
+	num_adults = size(adults);
+	lines = c(lines, rep("1, ", num_adults) + adults.x + rep(", ", num_adults) + adults.y);	
+	
+	juveniles = p1.subsetIndividuals(maxAge = MATURATIONTIME);
+	num_juveniles = size(juveniles);
+	lines = c(lines, rep("2, ", num_juveniles) + juveniles.x + rep(", ", num_juveniles) + juveniles.y);
+
+	csvfilename = OUTBASE + "_coordinates_tick_" + community.tick + ".csv";
+	if (!writeFile(csvfilename, lines))
+		stop("Error writing csv file.");
+}
+
+RUNTIME late() {
+	catn("End of simulation (run time reached)");
+	sim.simulationFinished();
+}
+
+function (void)setupParams(object<Dictionary>$ defaults)
+{
+	if (!exists("PARAMFILE")) defineConstant("PARAMFILE", "./params.json");
+	if (!exists("OUTDIR")) defineConstant("OUTDIR", ".");
+	defaults.addKeysAndValuesFrom(Dictionary("PARAMFILE", PARAMFILE, "OUTDIR", OUTDIR));
+	
+	if (fileExists(PARAMFILE)) {
+		defaults.addKeysAndValuesFrom(Dictionary(readFile(PARAMFILE)));
+		defaults.setValue("READ_FROM_PARAMFILE", PARAMFILE);
+	}
+	
+	defaults.setValue("OUTBASE", OUTDIR + "/out_" +	defaults.getValue("SEED"));
+	
+	for (k in defaults.allKeys) {
+		if (!exists(k))
+			defineConstant(k, defaults.getValue(k));
+		else
+			defaults.setValue(k, executeLambda(k + ";"));
+	}
+	
+	// print out default values
+	catn("===========================");
+	catn("Model constants: " + defaults.serialize("pretty"));
+	catn("===========================");
+}

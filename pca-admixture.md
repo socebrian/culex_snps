@@ -126,7 +126,7 @@ pipiens123_3_1nBDQF_M.bcf.csi
 
 Then, from my shell
 ```bash
-# I used a .txt file instead of .tsv for population, is that okay?
+# I used a .txt file instead of .tsv for population, is that okay
 Rscript run_lostruct.R -i ./data \
                        -I populations-mpileup.txt \ 
                        -t snp \
