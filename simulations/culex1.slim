@@ -11,22 +11,21 @@ initialize() {
 		"SM", 1000.0,         // sigma_M, mate choice distance
 		"SV", 1000.0,         // sigma_V, adult travel distance
 		"K", 0.002,           // carrying capacity per unit area of larvae
-		"XMIN", 2776.95 * 1000,  // map left boundary (originally 2775951.216m)
-		"XMAX", 3089.22 * 1000,   // map right boundary (originally 3089218.131m)
-		"YMIN", 1581.14 * 1000,  // map bottom boundary (originally 1581144.968m)
-		"YMAX", 1869.04 * 1000,  // map top boundary (originally 1869044.362m)
-		"ADULTSURVIVAL", "C:\\Users\\scebr\\Documents\\culex_snps\\simulations\\survival_p.csv", 
+		"XMIN", -3.7 * 1000,  // map left boundary
+		"XMAX", 0.9 * 1000,   // map right boundary
+		"YMIN", 11.1 * 1000,  // map bottom boundary
+		"YMAX", 13.2 * 1000,  // map top boundary
 		"ADULTMORTALITY", 0.125, // probability of death per tick per adult
 		"JUVMORTALITY", 0.05, // base mortality for larvae per day
 		"FECUN", 5.0,         // average number of eggs per day per female adult
-		"MATURATIONTIME", 10, // minimum age (in days) when individuals can start mating (from adults or from larvae?)
+		"MATURATIONTIME", 10, // minimum age (in days) when individuals can start mating
 		"RECORDTIME", 300,
 		"RECORDINTERVAL", 50,
 		"RUNTIME", 1000,
-		"L", 5.33e8,             // genome length 
+		"L", 1e8,             // genome length
 		"R", 1e-8,            // recombination rate
 		"MU", 0,              // mutation rate
-		"IMAGE_PATH", "C:\\Users\\scebr\\Documents\\culex_snps\\simulations\\raster-waterbody-grid2.png"
+		"IMAGE_PATH", "./river_greyscale.png"
 		);
 		
 	// Set up parameters with a user-defined function
@@ -78,7 +77,7 @@ initialize() {
 	log.addCustomColumn('juveniles', 'p1.subsetIndividuals(maxAge=MATURATIONTIME - 1).size();');
 	log.addCustomColumn('juveniles_density', 'i1.evaluate(p1);mean(i1.localPopulationDensity(p1.subsetIndividuals(maxAge=MATURATIONTIME - 1)));');
 	
-	adult_survival_df = readCSV("C:\\Users\\scebr\\iCloudDrive\\TESIS\\OBJ3. ECOGEN\\SLiM\\survival.csv");
+	adult_survival_df = readCSV("survival.csv");
 	defineConstant("ADULT_SURVIVAL", adult_survival_df.getValue("p"));
 }
 
@@ -126,8 +125,6 @@ early() {
 	// adults have fixed mortality independent of location
 	adults = p1.subsetIndividuals(minAge = MATURATIONTIME);
 	// adults.fitnessScaling = 1 - ADULTMORTALITY;
-	adultsurv = readCSV(ADULTSURVIVAL);
-	ADULT_SURVIVAL= (adultsurv.getValue("p"));
 	day = asInteger(community.tick % 365);
 	adults.fitnessScaling = ADULT_SURVIVAL[day];
 	catn("tick is:" + community.tick + "; day is: " + day + "; survival is: " + ADULT_SURVIVAL[day]);
