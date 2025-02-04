@@ -31,15 +31,14 @@ config="/home/scamison/kernlab/scamison/${dir}/data/${input}"
 sample=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $2}' $config)
 
 # Extract the name for the current $SLURM_ARRAY_TASK_ID
-name=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $3}' $config)
 
 # Run fastp
 fastp \
     -i /home/scamison/kernlab/scamison/${dir}/data/${sample}_1.fq.gz -I /home/scamison/kernlab/scamison/${dir}/data/${sample}_2.fq.gz \
-    -o /home/scamison/kernlab/scamison/${dir}/data/${name}.R1.fastp.fq.gz -O /home/scamison/kernlab/scamison/${dir}/data/${name}.R2.fastp.fq.gz \
-    -h /home/scamison/kernlab/scamison/${dir}/fastp/${name}.fastp.html -j /home/scamison/kernlab/scamison/${dir}/fastp/${name}.fastp.json \
-    --unpaired1 /home/scamison/kernlab/scamison/${dir}/data/${name}.R1.unpaired.fq.gz --unpaired2 /home/scamison/kernlab/scamison/${dir}/data/${name}.R2.unpaired.fq.gz \
-    --failed_out /home/scamison/kernlab/scamison/${dir}/data/${name}.failed.fq.gz \
+    -o /home/scamison/kernlab/scamison/${dir}/data/${sample}.R1.fastp.fq.gz -O /home/scamison/kernlab/scamison/${dir}/data/${sample}.R2.fastp.fq.gz \
+    -h /home/scamison/kernlab/scamison/${dir}/fastp/${sample}.fastp.html -j /home/scamison/kernlab/scamison/${dir}/fastp/${sample}.fastp.json \
+    --unpaired1 /home/scamison/kernlab/scamison/${dir}/data/${sample}.R1.unpaired.fq.gz --unpaired2 /home/scamison/kernlab/scamison/${dir}/data/${sample}.R2.unpaired.fq.gz \
+    --failed_out /home/scamison/kernlab/scamison/${dir}/data/${sample}.failed.fq.gz \
     --trim_poly_g \
     --trim_poly_x \
     --length_required 30 \
@@ -48,4 +47,4 @@ fastp \
    # --adapter_fasta /mnt/lustre/scratch/nlsas/home/csic/dbl/scc/data/polyG.fasta
 
 
-    #sbatch --array=1- -n 1 --cpus-per-task=10 --mem-per-cpu=20G -t 12:00:00 fastp-array.sh 4.enero
+    #sbatch --array=1-24 -n 1 --cpus-per-task=10 --mem-per-cpu=20G -t 12:00:00 fastp-molestus.sh molestus list-fastp-output.txt

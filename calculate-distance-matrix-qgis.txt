@@ -1,0 +1,40 @@
+### How to Extract a Distance Matrix Using QGIS
+
+If you have a shapefile with coordinates for several localities and need to calculate the straight-line distance between all pairs of localities, you can do this efficiently in QGIS by following the steps below:
+
+#### 1. **Load the Shapefile**
+   - Open QGIS and load your shapefile containing the localities by dragging it into the QGIS window or using the "Layer" > "Add Layer" > "Add Vector Layer" option.
+
+#### 2. **Check and Reproject the Coordinate Reference System (CRS)**
+   - You need to ensure that your shapefile uses a CRS in meters, as the distances will be calculated based on the projection system of the layer.
+   - Right-click on your layer in the **Layers** panel and select **Properties**.
+   - In the **Information** tab, check the **CRS**. If it’s in degrees (like EPSG:4326 - WGS 84), you need to reproject it to a UTM zone, which uses meters.
+
+#### 3. **Reproject the Layer to a UTM CRS**
+   - To reproject the layer, go to the top menu and click on **Vectorial** > **Data Management Tools** > **Reproject Layer**.
+   - In the dialog box, select your input layer and choose a **UTM CRS**. For instance, if you are working in UTM Zone 29N, select **EPSG:32629 - WGS 84 / UTM Zone 29N**.
+   - Click **Run** to reproject the layer, and a new reprojected layer will appear in the **Layers** panel.
+
+#### 4. **Use the Distance Matrix Tool**
+   - Once the layer is in a CRS with units in meters, go to the **Vector** menu and select **Analysis Tools** > **Distance Matrix**.
+   - In the **Distance Matrix** dialog:
+     - Select your reprojected layer as both the **Input point layer** and the **Target point layer** (if you want to calculate distances between points in the same layer).
+     - Choose a unique identifier for both layers (such as a field that contains the names or IDs of the localities).
+     - For **Output matrix type**, choose **Linear (N * k x 3)** to compute distances between all pairs of localities.
+     - Leave the **k** value as **0** to calculate distances for all localities.
+     - Select where to save the output distance matrix by clicking the folder icon or choose to create a temporary layer.
+
+#### 5. **Run the Tool**
+   - Once everything is set, click **Run**. The distance matrix will be calculated, and the output will either be saved to the specified location or displayed as a temporary layer in the **Layers** panel.
+
+#### 6. **Export the Distance Matrix**
+   - If the distance matrix was created as a temporary layer, right-click on the result in the **Layers** panel and select **Export** > **Save As**.
+   - In the **Save Vector Layer As...** dialog:
+     - Choose **Comma Separated Value [CSV]** as the format (or another format like **TXT**, if preferred).
+     - Choose the destination folder and file name, then click **OK**.
+
+#### 7. **Interpret the Distance Matrix**
+   - If you selected the **summary matrix** option, you’ll get a table that shows statistics like the mean, standard deviation, minimum, and maximum distances between each locality and all others.
+   - If you want the full matrix with pairwise distances between localities, ensure that you export the full distance matrix CSV from step 6.
+
+With these steps, you can efficiently extract and export the distance matrix between all pairs of localities in QGIS. The results will be in meters if you followed the steps to reproject the layer to a UTM or any other projection that uses meters as units.

@@ -1,20 +1,23 @@
 #!/bin/bash
-#SBATCH --output=output-list-array.txt
+#SBATCH --account=kernlab
+#SBATCH --partition=kern
 #SBATCH --mem-per-cpu=500M
-#SBATCH --time=00:30:00
-#SBATCH --cpus-per-task=1
+#SBATCH --time=02:00:00
+#SBATCH --cpus-per-task=15
 #SBATCH --mail-type=END,FAIL 
-#SBATCH --mail-user=sonia.cebrian@ebd.csic.es
+#SBATCH --mail-user=scebrian27@gmail.com
+#SBATCH --output=list-fastp_%j.out
+#SBATCH --error=list-fastp_%j.err
 
 #this script will list all the files in a directory and write the output to a file
 #specificly designed to list the files to perform fastp
 
 # Directory containing the files
-dir=${1}
-output=${2}
+dir=${1} #4.enero/data
+output=${2} #list-fastp.txt
 
 # Construct the full path for the output file
-output_path="/mnt/lustre/scratch/nlsas/home/csic/dbl/scc/${dir}/${output}"
+output_path="/home/scamison/kernlab/scamison/${dir}/${output}"
 
 # Create or clear the output file and add column headers
 echo "id sample name" > $output_path
@@ -23,7 +26,7 @@ echo "id sample name" > $output_path
 id=1
 
 # Iterate over all _1.fq.gz files in the directory
-for file in /mnt/lustre/scratch/nlsas/home/csic/dbl/scc/${dir}/*_1.fq.gz; do
+for file in /home/scamison/kernlab/scamison/${dir}/*_1.fq.gz; do
     # Extract the sample name
     sample=$(basename "$file" "_1.fq.gz")
     # Extract the name (first 6 characters + "." + L code)

@@ -3,11 +3,17 @@
 ## sonia cebrian camison scebrian27@gmail.com/sonia.cebrian@ebd.csic.es
 ### 10/09/2024 - 15/1/2025
 
-### 1: fastp trimming (culex conda env on CESGA)
-1. list-array-fasp.sh: it creates a list ready to run fastp as a job array on many files within a directory
-2. fastp-array-sh: runs fastp as a job array using all the files contained in [1]
+### 1: fastp trimming (culex conda env on CESGA pipiens 123) (talapas conda env fastp pipiens4 y perex)
+1. fastqc.sh: runs fastqc in all files and then do multiqc over the results. I do it before and after applying fastp to:
+    a. check the filters i need to apply on fastp
+    b. be able to compare if fastp is cleaning what i need to
+2.  list-array-fasp.sh: it creates a list ready to run fastp as a job array on many files within a directory
+3. fastp-array-sh: runs fastp as a job array using all the files contained in [1]
 
 ```bash
+#first run of fastqc
+sbatch -n 1 --cpus-per-task=10 --mem-per-cpu=20 -t 12:00:00 fastqc.sh 4.enero
+
 #Do fastp with polyG trimming and min 30pb length
 sbatch list-array-fastp.sh dir/to/files name-output.txt
 sbatch --array=1-20%4 fastp-array.sh directory list-fastp-output.txt #directory -> 2.mayo or other folder on LUSTRE. Note that the scripts usually have pre-defined directories, only missing a folder
@@ -15,8 +21,12 @@ sbatch --array=1-20%4 fastp-array.sh directory list-fastp-output.txt #directory 
 ## 1.2- fastqc and multiqc to ensure everything looks right
 ```bash
 fastqc $LUSTRE/3.repetidas/data/*.fastp.fq.gz -o $LUSTRE/3.repetidas/fastqc
-
 ```
+Programs:
+- multiqc v1.26
+- fastqc v0.12
+- fastp v0.24
+
 ## Error checking through the workflow
 During all the steps, a lot of output and error files are generated in each job and it is impossible to check all of them 1 by 1 to ensure everything run smoothly. To check all of them at once, I created the script <error-check.sh>, that checks all the .err and .out files inside the current directory and prints the erros of all of them together. If the script is empty, it means it has not find the word "error" nor exit code not equal to 0 in any of these files. 
 ```bash
