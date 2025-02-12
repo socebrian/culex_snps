@@ -6,27 +6,30 @@
 library(ggplot2)
 
 # read eigenvalues
-eigenvals <- read.table("2202pipiens123_3_f1n_BDQMC_pruned_PCA.eigenval",
+eigenvals <- read.table("2202pipiens123_pmolestus_3_filteredGT_pruned_PCA.eigenval",
                         col.names = c("eigenval"))
 # convert eigenvalues to percentage
 percents <- eigenvals$eigenval/sum(eigenvals$eigenval)*100
 
 # read eigenvector
-eigenvec <- read.table("2202pipiens123_1_f1n_BDQMC_pruned_PCA.eigenvec", sep="\t", header=T)
-eigenvec$batch <- as.factor(eigenvec$batch)
+eigenvec <- read.table("2202pipiens123_pmolestus_3_filteredGT_pruned_PCA.eigenvec", sep="\t", header=T)
+#eigenvec$batch <- as.factor(eigenvec$batch)
+eigenvec$species <- as.factor(eigenvec$species)
 eigenvec$id <- as.factor(eigenvec$id)
-eigenvec <- eigenvec[eigenvec$id != "PP1122",]
-eigenvec <- eigenvec[eigenvec$id != "PP1001",]
+
+#eigenvec <- eigenvec[eigenvec$id != "PP1122",]
+#eigenvec <- eigenvec[eigenvec$id != "PP1001",]
 #variables
-scree_plot_file <- "mod_eigenval_2202pipiens123_3_f1n_BDQMC.pdf"
-pca_plot_file <- "mod_pca12_2202pipiens123_1_f1n_BDQMC.pdf"
+f1 <- "2202pipiens123_pmol_3.pdf"
+f2 <- "pca12_2202pipiens123_pmol_3.png"
 pc.x <- eigenvec$X
 pc.y <- eigenvec$X.1
 x_label <- paste0("PC1-", round(percents[1], 2), "%")
 y_label <- paste0("PC2-", round(percents[2], 2), "%")
+maint <- "Chromosome 3"
 
 # scree-plot of eigenvalues
-(scree <- ggplot() +
+(fig1 <- ggplot() +
   geom_line(aes(x = as.numeric(row.names(eigenvals)), y = percents)) +
   geom_point(aes(x = as.numeric(row.names(eigenvals)), y = percents),
     fill = "grey", shape = 21, size = 2.5) +
@@ -35,20 +38,21 @@ y_label <- paste0("PC2-", round(percents[2], 2), "%")
   scale_x_continuous(n.breaks = 10) +
   theme_bw())
 
-ggsave(filename = scree_plot_file, plot = scree)
+ggsave(f1, device = "png", units = "in", plot=fig1, width=5, height=4)
 
 #### this first part is from https://github.com/Enricobazzi/EBD-PopGenIntro/blob/main/practica2/practica2.md
 ###it was adapted to plot my data
 
-(pca <- ggplot() +
+(fig2 <- ggplot() +
   geom_point(
-    data = eigenvec,
-    aes(x = pc.x, y = pc.y, fill = prov, shape = batch),
-    size  = 2.5,
-    color = "black"   # <--- Give an explicit outline color
+    data = eigenvec, alpha = 0.5,
+    aes(x = pc.x, y = pc.y, colour = species) #, shape = prov),
+    #size  = 2.5 #,
+    #color = "black"   # <--- Give an explicit outline color
   ) +
-  scale_shape_manual(values = c(21, 22, 24)) +
-  scale_fill_brewer(palette = "Set1") +
+  #scale_shape_manual(values = c(22, 24, 25, 21)) +
+  #scale_fill_brewer(palette = "Set1") +
+  labs(title= maint)+
   xlab(x_label) +
   ylab(y_label) +
   theme_bw() +
@@ -58,4 +62,4 @@ ggsave(filename = scree_plot_file, plot = scree)
     shape = guide_legend(override.aes = list(color = "black"))
   ))
 
-ggsave(filename = pca_plot_file, plot = pca)
+ggsave(f2, device = "png", units = "in", plot=fig2, width=5, height=4)

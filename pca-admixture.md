@@ -7,6 +7,8 @@
 ### 8. Linkage- desequilibrium and conventional PCA (culex env on talapas)
 
 I am working with PLINK and sometimes it was gwtting confused by any FORMAT field that was not GT (it returned Error saying GT can not contain Floating values). So first thing I get rid of all FORMAT fields other than GT
+
+NOTA : (--indep-pairwise 200 20 0.2). EN PAPER DE PIPPOP, mucho mas estrcictos
 ```bash
 # first let only GT in format so plink dont freak out
 bcftools annotate -x ^FORMAT/GT pipiens123_1_1nBDQF_M.bcf  -Oz -o pipiens123_1_filteredGT.vcf.gz
@@ -111,7 +113,7 @@ ggsave(filename = "R/pipiens123_pc12_prov_plot.pdf", plot = pc12_prov)
 ```
 
 ### 9. local PCA (vcf env on poppy)
-NOTE: I used files before LD prunning instead of the prunned ones.
+NOTE: I used files before LD prunning instead of the prunned ones. Should i use the prunned ones??
 
 I followed <https://github.com/petrelharp/local_pca/tree/master/templated> to run <run_lostruct.R> and <summarize_run-Rmd>.
 (Some packages may be neccesary to install following the error, I did so inside an R session)
@@ -144,32 +146,5 @@ templater::render_template(
 ```
 This generates a summary that I renamed as <pipiens123_localPCA_results.html> 
 
-
-
-
-### questions to that point
-* use molestus from other studies in PCA to see if any clustering is due to biotypes. Where to introduce them? In the snp calling already? Later? Can i do a different VCF and then merge it with the one y already got?
-* PCA (plink) vs Local PCA ¿cual hacer y por qué? 
-* local PCA se hace tambien con biallelic positions?
-* local PCA interpretation?
-* any other plots to do with the results?
-
-### 10. ADMIXTURE /STRUCTURE analyses
-en principio structure es mas robusto cuando no hay una clara estrcutra poblacional pero es muy sensible a unaven sampling por localidades asi que tener en cuenta. Structure (ESPAÑA)
-
-### 11. Calculate Fst and Ne
- cuantificar diferentiation Fst usando VCFtools y tamaños poblacionales efectivos (ESPAÑA)
-
-## 12. Landscape genetics analyses
-I have raster images with monthly values for 2022 of:
-- Tmin
-- Tmax
-- rainfall
-- soil moisture
-- vapor pressure
-- evapotranspiration
-- over surface water
-- NDVI
-
-* landscape analysis. alternativa a circuit theory?
+NOTA: que he usado en local pca para dar info de provincias?? porque en provincias txt faltaban dos muestras.
 

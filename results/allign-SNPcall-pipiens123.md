@@ -1,7 +1,10 @@
 # Proyec: SNPS Culex - ECOGEN
 # pipieline for fastp trimming, alignment, variant calling and filtering
+# pipieline applied to Cx pipiens batches 1, 2 and 3.
 ## sonia cebrian camison scebrian27@gmail.com/sonia.cebrian@ebd.csic.es
 ### 10/09/2024 - 15/1/2025
+
+These batches are characterized for having low coverage, approx mean DP is 8X. Also very low MAF.
 
 ### 1: fastp trimming (culex conda env on CESGA pipiens 123) (talapas conda env fastp pipiens4 y perex)
 1. fastqc.sh: runs fastqc in all files and then do multiqc over the results. I do it before and after applying fastp to:
@@ -152,9 +155,6 @@ picard AddOrReplaceReadGroups \
 echo "Indexing BAM file: $sorted_rg_bam"
 samtools index "$sorted_rg_bam"
 ```
-NOTA: ANTES DE MARCAR DUPLICADOS (AUNQUE NO SE HAYA HECHO MERGE AUN) GENERAR TAMBIEN EL REPORT
-CON SAMTOOLS GLAGSTAT PARA VER 1- TOTAL DE READS, 2- CUANTAS ESTAN MAPPED EN TOTAL, 3. CUANTAS HAY PROPERLY MAPPED. CON EL REPORT DE CADA MUESTRA HACER UN SCRIPT QUE COJA TODOS LOS REPORTS Y CREE UNA TABLA CON EL NOMBRE Y LANE DE LA MUESTRA Y ESTOS TRES DATOS. ESTO NOS AYUDA A VER SI LAS DIFERENCIAS POSTERIORES EN DEPTH Y OTRAS COSAS VIENEN DE UN PROBLEMA CON LA SECUENCIACION O EL MAPEO O NO (TIENE QUE VER CON LA CANTIDAD DE SECUENCIAS EN GENERAL?, ES UNA MUESTRA QUE TIENE MUCHAS SECUENCIAS PERO MAPEAN POCAS (QUE HEMOS SECUENCIADO ENTONCES, BACTERIAS, COTNAMINACION???))???
-seria samtools flagstat muestra.vcf > muestra.stats. samtools en culex env
 
 ### 4. Mark duplicates (vcf environment on talapas)
 We use 2 scripts for that:
@@ -518,7 +518,7 @@ I still run <variant-filter-M.sh> and got the same number of SNPs as before.
     * chrom 2: 15.372
     * chrom 3: 17.709
 
-That are the files that I will be working with for now. NOTE: 4 of my samples are males, but culex have homomorphic? sex chormosomes, which means they look like autosomes, they are not differnt like X, Y, they are a normal chromosome pair in which theres a region that identifies the sex. 
+That are the files that I will be working with for now. NOTE: 4 of my samples are males, and I did not took this into account when working with chormosome 1.
 ```bash
  vcftools --bcf pipiens123_1_f1n_BDQF.bcf --missing-indv --out pipiens123_1_f1n_BDQF
 ```
