@@ -55,3 +55,8 @@ We cconfirmed that there is no correlation between geographic distance and genet
 ![Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 3](results/gen-geo-distance/2202pipiens123_gengeo_dist_3_maf05.png "Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 3")
 
 
+We checked linkage-desequilibrium along the genome:
+![Culex pipiens. Batches 1-3. LD. chromosome 1](results/LD-heatmaps/2202pipiens123_1_maf05_LD.png "Culex pipiens. Batches 1-3. LD. chromosome 1")
+![Culex pipiens. Batches 1-3. LD. chromosome 2](results/LD-heatmaps/2202pipiens123_2_maf05_LD.png "Culex pipiens. Batches 1-3. LD. chromosome 2")
+![Culex pipiens. Batches 1-3. LD. chromosome 3](results/LD-heatmaps/2202pipiens123_3_maf05_LD.png "Culex pipiens. Batches 1-3. LD. chromosome 3")
+
