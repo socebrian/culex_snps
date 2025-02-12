@@ -38,6 +38,6 @@ Using filters -- DP>2 GQ>20 MISS<20 MAC>2
 ## Pca analysis 
 Not including 1 sample form Celestino Mutis (Huelva) and 1 from Puebla (Seville) because they were outliers in all the PCAs
 
-![PCA chromosome 1](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_1_f1n_BDQMC.pdf "Chromosome 1")
-![PCA chromosome 2](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_2_f1n_BDQMC.pdf "Chromosome 2")
-![PCA chromosome 3](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_3_f1n_BDQMC.pdf "Chromosome 3")bcfto
+![Culex pipiens. Batches 1-3. PCA chromosome 1](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_1..png "Culex pipiens. Batches 1-3. PCA chromosome 1")
+![Culex pipiens. Batches 1-3. PCA chromosome 2](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_2.png "Culex pipiens. Batches 1-3. PCA chromosome 2")
+![Culex pipiens. Batches 1-3. PCA chromosome 3](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_3.png "Culex pipiens. Batches 1-3. PCA chromosome 3")
