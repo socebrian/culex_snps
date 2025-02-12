@@ -36,8 +36,22 @@ Using filters -- DP>2 GQ>20 MISS<20 MAC>2
 * chrom3: 451723 sites
 
 ## Pca analysis 
-Not including 1 sample form Celestino Mutis (Huelva) and 1 from Puebla (Seville) because they were outliers in all the PCAs
+Not including 1 sample form Celestino Mutis (Huelva) and 1 from Puebla (Seville) because they were outliers in all the PCAs. Not excluded from the PCA calculations, just from the graphs.
 
+There is no cluster related to populations or sequencing batches.
 ![Culex pipiens. Batches 1-3. PCA chromosome 1](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_1..png "Culex pipiens. Batches 1-3. PCA chromosome 1")
 ![Culex pipiens. Batches 1-3. PCA chromosome 2](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_2.png "Culex pipiens. Batches 1-3. PCA chromosome 2")
 ![Culex pipiens. Batches 1-3. PCA chromosome 3](results/PCA/2refiltered_depth_batch123/mod_pca12_2202pipiens123_3.png "Culex pipiens. Batches 1-3. PCA chromosome 3")
+
+
+There is no cluster related to urbanization level.
+![Culex pipiens. Batches 1-3. PCA chromosome 1](results/PCA/2refiltered_depth_batch123/habitatPCA_2202pipiens123_1_f1n_BDQMC.png "Culex pipiens. Batches 1-3. PCA chromosome 1")
+![Culex pipiens. Batches 1-3. PCA chromosome 2](results/PCA/2refiltered_depth_batch123/habitatPCA_2202pipiens123_2_f1n_BDQMC.png "Culex pipiens. Batches 1-3. PCA chromosome 2")
+![Culex pipiens. Batches 1-3. PCA chromosome 3](results/PCA/2refiltered_depth_batch123/habitatPCA_2202pipiens123_3_f1n_BDQMC.png "Culex pipiens. Batches 1-3. PCA chromosome 3")
+
+We cconfirmed that there is no correlation between geographic distance and genetic distance.
+![Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 1](results/gen-geo-distance/2202pipiens123_gengeo_dist_1_maf05.png "Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 1")
+![Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 2](results/gen-geo-distance/2202pipiens123_gengeo_dist_2_maf05.png "Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 2")
+![Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 3](results/gen-geo-distance/2202pipiens123_gengeo_dist_3_maf05.png "Culex pipiens. Batches 1-3. Gentic vs geographic ditance. chromosome 3")
+
+
