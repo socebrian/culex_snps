@@ -1,0 +1,3 @@
+GO.ID	Term	Annotated	Significant	Expected	Fisher	Genes
+GO:0072546	EMC complex	5	2	0.11	0.0049	LOC_00014282;LOC_00014380
+GO:0005905	clathrin-coated pit	10	2	0.23	0.0206	LOC_00014295;LOC_00014465

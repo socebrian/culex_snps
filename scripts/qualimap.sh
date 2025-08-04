@@ -1,6 +1,4 @@
 #!/bin/bash
-#SBATCH --account=kernlab
-#SBATCH --partition=kern
 #SBATCH --mem-per-cpu=5G
 #SBATCH --time=08:00:00
 #SBATCH --cpus-per-task=1
@@ -33,4 +31,4 @@ for bam_file in "$input_dir"/*merged.bam; do
     fi
 done
 
-# sbatch --array=1-5 -n 1 --cpus-per-task=1 --mem-per-cpu=2G -t 02:00:00 --job-name=3rep.qualimap  qualimap.sh 3.repetidas
+# sbatch -n 1 --cpus-per-task=1 --mem-per-cpu=20G -t 12:00:00 --job-name=3rep.qualimap  qualimap.sh 3.repetidas

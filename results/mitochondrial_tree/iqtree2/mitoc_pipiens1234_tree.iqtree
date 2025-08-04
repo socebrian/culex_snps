@@ -1,0 +1,1146 @@
+IQ-TREE 2.4.0 built Feb 12 2025
+
+Input file name: aligned_mitoc_seq_pipiens1234.fasta
+Type of analysis: ModelFinder + tree reconstruction + non-parametric bootstrap (1000 replicates)
+Random seed number: 12345
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 237 sequences with 18033 nucleotide sites
+Number of constant sites: 11226 (= 62.2525% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 11226 (= 62.2525% of all sites)
+Number of parsimony informative sites: 1641
+Number of distinct site patterns: 1103
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: K3Pu+F+I+R2
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+K3Pu+F+I+R2      -55027.189  111012.378 +    0.254  111038.575 +    0.275  114748.558 +    0.971
+TPM3u+F+I+R2     -55030.973  111019.945 -  0.00578  111046.143 -  0.00624  114756.126 -   0.0221
+TIM+F+I+R2       -55027.362  111014.723 +   0.0787  111041.032 +   0.0804  114758.704 -  0.00608
+TVM+F+I+R2       -55024.235  111010.470 +     0.66  111036.889 +    0.638  114762.250 -  0.00103
+TIM3+F+I+R2      -55032.105  111024.211 - 0.000685  111050.519 -   0.0007  114768.191 - 5.29e-05
+HKY+F+I+R2       -55043.281  111042.562 -  7.1e-08  111068.648 -  8.1e-08  114770.942 - 1.34e-05
+TN+F+I+R2        -55039.818  111037.636 - 8.33e-07  111063.833 - 8.99e-07  114773.816 - 3.18e-06
+TPM2u+F+I+R2     -55041.244  111040.489 -    2e-07  111066.686 - 2.16e-07  114776.669 - 7.64e-07
+TIM2+F+I+R2      -55041.464  111042.928 - 5.91e-08  111069.236 - 6.04e-08  114786.908 - 4.57e-09
+GTR+F+R2         -55052.928  111067.856 - 2.28e-13  111094.276 - 2.21e-13  114819.636 - 3.57e-16
+GTR+F+I+R2       -55048.535  111061.069 -  6.8e-12  111087.600 - 6.21e-12  114820.649 - 2.15e-16
+GTR+F+I+R3       -55049.005  111066.010 - 5.75e-13  111092.764 -  4.7e-13  114841.190 - 7.45e-21
+GTR+F+R3         -55054.061  111074.122 - 9.95e-15  111100.764 -  8.6e-15  114841.502 - 6.38e-21
+K3Pu+F+R2        -55090.229  111136.459 -  2.9e-28  111162.545 -  3.3e-28  114864.839 - 5.46e-26
+TN+F+R2          -55094.652  111145.304 - 3.47e-30  111171.391 - 3.96e-30  114873.685 - 6.55e-28
+TPM3u+F+R2       -55094.795  111145.591 - 3.01e-30  111171.677 - 3.44e-30  114873.971 - 5.68e-28
+HKY+F+R2         -55101.078  111156.157 - 1.53e-32  111182.133 - 1.84e-32  114876.737 - 1.42e-28
+TIM+F+R2         -55091.601  111141.202 -  2.7e-29  111167.399 - 2.92e-29  114877.382 - 1.03e-28
+TVM+F+R2         -55089.368  111138.736 - 9.27e-29  111165.044 - 9.47e-29  114882.716 - 7.16e-30
+TPM2u+F+R2       -55102.337  111160.674 -  1.6e-33  111186.761 - 1.82e-33  114889.054 - 3.01e-31
+TIM3+F+R2        -55098.503  111155.007 - 2.72e-32  111181.204 - 2.93e-32  114891.187 - 1.04e-31
+TIM2+F+R2        -55102.554  111163.107 - 4.73e-34  111189.304 - 5.11e-34  114899.287 - 1.81e-33
+GTR+F+G4         -55579.273  112118.545 - 1.6e-241  112144.854 - 1.63e-241  115862.526 - 1.24e-242
+GTR+F+I+G4       -55577.086  112116.172 - 5.24e-241  112142.591 - 5.07e-241  115867.952 - 8.2e-244
+GTR+F+I          -56292.684  113545.368 -        0  113571.676 -        0  117289.348 -        0
+GTR+F            -56541.542  114041.084 -        0  114067.281 -        0  117777.264 -        0
+F81+F+R2         -56692.172  114336.343 -        0  114362.209 -        0  118049.123 -        0
+F81+F+I+R2       -56695.945  114345.890 -        0  114371.867 -        0  118066.471 -        0
+SYM+I+R2         -59300.184  119558.368 -        0  119584.565 -        0  123294.548 -        0
+TVMe+I+R2        -59312.166  119580.333 -        0  119606.419 -        0  123308.713 -        0
+SYM+R2           -59319.699  119595.399 -        0  119621.485 -        0  123323.779 -        0
+TVMe+R2          -59332.114  119618.227 -        0  119644.203 -        0  123338.807 -        0
+TIMe+R2          -59412.010  119776.019 -        0  119801.885 -        0  123488.800 -        0
+TIMe+I+R2        -59407.651  119769.301 -        0  119795.277 -        0  123489.882 -        0
+K3P+R2           -59423.479  119796.957 -        0  119822.713 -        0  123501.938 -        0
+K3P+I+R2         -59421.650  119795.299 -        0  119821.165 -        0  123508.080 -        0
+TIM3e+I+R2       -59587.534  120129.068 -        0  120155.044 -        0  123849.648 -        0
+TPM3+I+R2        -59599.247  120150.493 -        0  120176.359 -        0  123863.274 -        0
+TIM3e+R2         -59601.856  120155.711 -        0  120181.577 -        0  123868.491 -        0
+TPM3+R2          -59613.934  120177.867 -        0  120203.623 -        0  123882.847 -        0
+TIM2e+I+R2       -59687.389  120328.777 -        0  120354.753 -        0  124049.357 -        0
+TIM2e+R2         -59696.071  120344.143 -        0  120370.009 -        0  124056.923 -        0
+TPM2+R2          -59705.481  120360.962 -        0  120386.718 -        0  124065.942 -        0
+TPM2+I+R2        -59702.212  120356.424 -        0  120382.290 -        0  124069.205 -        0
+TNe+R2           -59836.707  120623.415 -        0  120649.171 -        0  124328.395 -        0
+TNe+I+R2         -59838.229  120628.458 -        0  120654.324 -        0  124341.239 -        0
+K2P+R2           -59848.382  120644.765 -        0  120670.411 -        0  124341.945 -        0
+K2P+I+R2         -59852.825  120655.650 -        0  120681.406 -        0  124360.631 -        0
+JC+R2            -60446.133  121838.266 -        0  121863.803 -        0  125527.646 -        0
+JC+I+R2          -60450.585  121849.169 -        0  121874.815 -        0  125546.349 -        0
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: K3Pu+F+I+R2
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 10.6800
+  A-T: 1.7898
+  C-G: 1.7898
+  C-T: 10.6800
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.3876
+  pi(C) = 0.0919
+  pi(G) = 0.1265
+  pi(T) = 0.394
+
+Rate matrix Q:
+
+  A   -0.8326   0.03562    0.5236    0.2734
+  C    0.1502    -1.869   0.08775     1.631
+  G     1.605   0.06376    -1.821    0.1527
+  T    0.2689    0.3805   0.04902   -0.6984
+
+Model of rate heterogeneity: Invar+FreeRate with 2 categories
+Proportion of invariable sites: 0.1665
+Site proportion and rates:  (0.7328,0.3119) (0.1007,7.661)
+
+ Category  Relative_rate  Proportion
+  0         0              0.1665
+  1         0.3119         0.7328
+  2         7.661          0.1007
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -55037.6201 (s.e. 410.5816)
+Unconstrained log-likelihood (without tree): -64786.2492
+Number of free parameters (#branches + #model parameters): 479
+Akaike information criterion (AIC) score: 111033.2402
+Corrected Akaike information criterion (AICc) score: 111059.4374
+Bayesian information criterion (BIC) score: 114769.4204
+
+Total tree length (sum of branch lengths): 4.8474
+Sum of internal branch lengths: 0.1623 (3.3477% of tree length)
+
+WARNING: 195 near-zero internal branches (<0.0001) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+NOTE: Tree is UNROOTED although outgroup taxon 'Anopheles_cruzii' is drawn at root
+Numbers in parentheses are  standard bootstrap support (%)
+
++-----------------------------------------------------------Anopheles_cruzii
+|
+|                                      +**PP1001
+|                                   +**| (41)
+|                                   |  +**PP1452
+|                                +--| (41)
+|                                |  +--PP1742
+|                             +**| (9)
+|                             |  |                                                                                                                                                                                      +**PP1027
+|                             |  |                                                                                                                                                                                   +**| (1)
+|                             |  |                                                                                                                                                                                   |  +**PP1054
+|                             |  |                                                                                                                                                                                +**| (0)
+|                             |  |                                                                                                                                                                                |  +**PP2047
+|                             |  |                                                                                                                                                                             +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                             +**PP1034
+|                             |  |                                                                                                                                                                             |  |                                                                                                                          +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                          |  +**PP1661
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |              +**PP1059
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |           +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |           |  +**PP1269
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |              +--PP1090
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |           +**| (2)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |           |  +--PP2217
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |        +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |        |  |  +--PP1344
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |        |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |        |     +--PP1870
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |     |  +**PP1869
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |  |  |  +**PP1705
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |  |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  |  |     +**PP2253
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |     |  +**PP1157
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |        |        +**PP1685
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |     +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |     |  +**PP1917
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  |  |  +--PP1253
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |     |  +**PP1671
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                       |        +**PP1810
+|                             |  |                                                                                                                                                                             |  |                                                                                                                    +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                    |  +**PP1291
+|                             |  |                                                                                                                                                                             |  |                                                                                                                 +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                                 |  +**PP2080
+|                             |  |                                                                                                                                                                             |  |                                                                                                              +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                              |  +**PP1670
+|                             |  |                                                                                                                                                                             |  |                                                                                                           +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                                           |  |  +--PP1040
+|                             |  |                                                                                                                                                                             |  |                                                                                                           |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                           |     |  +**PP1041
+|                             |  |                                                                                                                                                                             |  |                                                                                                           |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                           |        +**PP1828
+|                             |  |                                                                                                                                                                             |  |                                                                                                        +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                        |  |  +**PP1207
+|                             |  |                                                                                                                                                                             |  |                                                                                                        |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                        |     +**PP1575
+|                             |  |                                                                                                                                                                             |  |                                                                                                     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                     |  +**PP1506
+|                             |  |                                                                                                                                                                             |  |                                                                                                  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                                  |  +**PP1345
+|                             |  |                                                                                                                                                                             |  |                                                                                               +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                               |  |  +**PP1094
+|                             |  |                                                                                                                                                                             |  |                                                                                               |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                               |     +--PP1878
+|                             |  |                                                                                                                                                                             |  |                                                                                            +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                            |  +**PP1895
+|                             |  |                                                                                                                                                                             |  |                                                                                         +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  |     +--PP1312
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  |  |  |  +--PP1351
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  |  |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  |  |     +--PP2029
+|                             |  |                                                                                                                                                                             |  |                                                                                         |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                         |     +**PP1526
+|                             |  |                                                                                                                                                                             |  |                                                                                      +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                      |  +--PP1713
+|                             |  |                                                                                                                                                                             |  |                                                                                   +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                   |  +**PP1315
+|                             |  |                                                                                                                                                                             |  |                                                                                +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                                |  +**PP2032
+|                             |  |                                                                                                                                                                             |  |                                                                             +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                             |  +**PP1587
+|                             |  |                                                                                                                                                                             |  |                                                                          +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                          |  +**PP1458
+|                             |  |                                                                                                                                                                             |  |                                                                       +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                       |  +**PP1754
+|                             |  |                                                                                                                                                                             |  |                                                                    +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                    |  +**PP1348
+|                             |  |                                                                                                                                                                             |  |                                                                 +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                                 |  +**PP1533
+|                             |  |                                                                                                                                                                             |  |                                                              +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                              |  +--PP1091
+|                             |  |                                                                                                                                                                             |  |                                                           +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                           |  +**PP1256
+|                             |  |                                                                                                                                                                             |  |                                                        +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                        |  +**PP1290
+|                             |  |                                                                                                                                                                             |  |                                                     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                     |  +**PP1915
+|                             |  |                                                                                                                                                                             |  |                                                  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                                  |  +**PP1172
+|                             |  |                                                                                                                                                                             |  |                                               +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                               |  +**PP1411
+|                             |  |                                                                                                                                                                             |  |                                            +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                            |  |        +--PP1055
+|                             |  |                                                                                                                                                                             |  |                                            |  |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                            |  |     |  +--PP1399
+|                             |  |                                                                                                                                                                             |  |                                            |  |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                            |  |  |  |  +--PP1058
+|                             |  |                                                                                                                                                                             |  |                                            |  |  |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                            |  |  |     +--PP1308
+|                             |  |                                                                                                                                                                             |  |                                            |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                            |     +**PP1093
+|                             |  |                                                                                                                                                                             |  |                                         +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                         |  |  +**PP1744
+|                             |  |                                                                                                                                                                             |  |                                         |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                                         |     +**PP1786
+|                             |  |                                                                                                                                                                             |  |                                      +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                      |  +**PP1524
+|                             |  |                                                                                                                                                                             |  |                                   +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                   |  +**PP2144
+|                             |  |                                                                                                                                                                             |  |                                +**| (0)
+|                             |  |                                                                                                                                                                             |  |                                |  +**PP1745
+|                             |  |                                                                                                                                                                             |  |                             +**| (0)
+|                             |  |                                                                                                                                                                             |  |                             |  +**PP1406
+|                             |  |                                                                                                                                                                             |  |                          +**| (0)
+|                             |  |                                                                                                                                                                             |  |                          |  +**PP1208
+|                             |  |                                                                                                                                                                             |  |                       +**| (0)
+|                             |  |                                                                                                                                                                             |  |                       |  |     +--PP1284
+|                             |  |                                                                                                                                                                             |  |                       |  |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                       |  |  |  +--PP1693
+|                             |  |                                                                                                                                                                             |  |                       |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |                       |     +--PP1710
+|                             |  |                                                                                                                                                                             |  |                    +**| (0)
+|                             |  |                                                                                                                                                                             |  |                    |  +**PP1174
+|                             |  |                                                                                                                                                                             |  |                 +**| (0)
+|                             |  |                                                                                                                                                                             |  |                 |  |  +**PP1636
+|                             |  |                                                                                                                                                                             |  |                 |  +**| (1)
+|                             |  |                                                                                                                                                                             |  |                 |     +**PP1723
+|                             |  |                                                                                                                                                                             |  |              +**| (0)
+|                             |  |                                                                                                                                                                             |  |              |  +**PP1159
+|                             |  |                                                                                                                                                                             |  |           +**| (0)
+|                             |  |                                                                                                                                                                             |  |           |  +**PP1920
+|                             |  |                                                                                                                                                                             |  |        +**| (0)
+|                             |  |                                                                                                                                                                             |  |        |  +**PP1618
+|                             |  |                                                                                                                                                                             |  |     +**| (0)
+|                             |  |                                                                                                                                                                             |  |     |  +**PP2051
+|                             |  |                                                                                                                                                                             |  |  +**| (0)
+|                             |  |                                                                                                                                                                             |  |  |  +**PP1162
+|                             |  |                                                                                                                                                                             |  +**| (0)
+|                             |  |                                                                                                                                                                             |     +**PP1447
+|                             |  |                                                                                                                                                                          +**| (0)
+|                             |  |                                                                                                                                                                          |  |  +**PP1232
+|                             |  |                                                                                                                                                                          |  +**| (0)
+|                             |  |                                                                                                                                                                          |     +**PP1566
+|                             |  |                                                                                                                                                                       +**| (0)
+|                             |  |                                                                                                                                                                       |  +--PP1028
+|                             |  |                                                                                                                                                                    +**| (0)
+|                             |  |                                                                                                                                                                    |  +**PP1092
+|                             |  |                                                                                                                                                                 +**| (0)
+|                             |  |                                                                                                                                                                 |  +**PP1032
+|                             |  |                                                                                                                                                              +**| (0)
+|                             |  |                                                                                                                                                              |  |  +**PP1151
+|                             |  |                                                                                                                                                              |  +**| (0)
+|                             |  |                                                                                                                                                              |     +**PP2017
+|                             |  |                                                                                                                                                           +**| (0)
+|                             |  |                                                                                                                                                           |  +**PP1709
+|                             |  |                                                                                                                                                        +**| (0)
+|                             |  |                                                                                                                                                        |  +**PP1398
+|                             |  |                                                                                                                                                     +**| (0)
+|                             |  |                                                                                                                                                     |  +**PP2084
+|                             |  |                                                                                                                                                  +**| (0)
+|                             |  |                                                                                                                                                  |  +**PP1772
+|                             |  |                                                                                                                                               +**| (0)
+|                             |  |                                                                                                                                               |  |  +**PP1206
+|                             |  |                                                                                                                                               |  +**| (0)
+|                             |  |                                                                                                                                               |     +--PP1490
+|                             |  |                                                                                                                                            +**| (0)
+|                             |  |                                                                                                                                            |  +**PP1465
+|                             |  |                                                                                                                                         +**| (0)
+|                             |  |                                                                                                                                         |  +**PP2106
+|                             |  |                                                                                                                                      +**| (0)
+|                             |  |                                                                                                                                      |  +**PP1293
+|                             |  |                                                                                                                                   +**| (0)
+|                             |  |                                                                                                                                   |  +**PP1132
+|                             |  |                                                                                                                                +**| (0)
+|                             |  |                                                                                                                                |  +**PP1972
+|                             |  |                                                                                                                             +**| (0)
+|                             |  |                                                                                                                             |  |  +--PP1984
+|                             |  |                                                                                                                             |  +**| (1)
+|                             |  |                                                                                                                             |     |  +--PP2139
+|                             |  |                                                                                                                             |     +**| (2)
+|                             |  |                                                                                                                             |        +--PP2147
+|                             |  |                                                                                                                          +**| (0)
+|                             |  |                                                                                                                          |  +**PP1608
+|                             |  |                                                                                                                       +**| (0)
+|                             |  |                                                                                                                       |  |  +**PP1095
+|                             |  |                                                                                                                       |  +**| (0)
+|                             |  |                                                                                                                       |     +**PP1653
+|                             |  |                                                                                                                    +**| (0)
+|                             |  |                                                                                                                    |  +**PP1582
+|                             |  |                                                                                                                 +**| (0)
+|                             |  |                                                                                                                 |  +**PP1314
+|                             |  |                                                                                                              +**| (0)
+|                             |  |                                                                                                              |  |  +**PP2070
+|                             |  |                                                                                                              |  +**| (0)
+|                             |  |                                                                                                              |     +**PP2191
+|                             |  |                                                                                                           +**| (0)
+|                             |  |                                                                                                           |  +**PP1800
+|                             |  |                                                                                                        +**| (0)
+|                             |  |                                                                                                        |  |  +**PP1346
+|                             |  |                                                                                                        |  +**| (0)
+|                             |  |                                                                                                        |     +**PP2128
+|                             |  |                                                                                                     +**| (0)
+|                             |  |                                                                                                     |  +**PP1629
+|                             |  |                                                                                                  +**| (0)
+|                             |  |                                                                                                  |  |     +--PP1265
+|                             |  |                                                                                                  |  |  +**| (1)
+|                             |  |                                                                                                  |  |  |  +--PP1807
+|                             |  |                                                                                                  |  +**| (0)
+|                             |  |                                                                                                  |     +--PP1592
+|                             |  |                                                                                               +**| (0)
+|                             |  |                                                                                               |  +**PP1033
+|                             |  |                                                                                            +**| (0)
+|                             |  |                                                                                            |  +**PP1148
+|                             |  |                                                                                         +**| (0)
+|                             |  |                                                                                         |  +--PP1667
+|                             |  |                                                                                      +**| (0)
+|                             |  |                                                                                      |  +**PP1656
+|                             |  |                                                                                   +**| (0)
+|                             |  |                                                                                   |  +**PP1487
+|                             |  |                                                                                +**| (0)
+|                             |  |                                                                                |  +**PP1456
+|                             |  |                                                                             +**| (0)
+|                             |  |                                                                             |  +**PP1161
+|                             |  |                                                                          +**| (0)
+|                             |  |                                                                          |  +**PP1031
+|                             |  |                                                                       +**| (0)
+|                             |  |                                                                       |  |  +**PP1493
+|                             |  |                                                                       |  +**| (0)
+|                             |  |                                                                       |     +**PP2145
+|                             |  |                                                                    +**| (0)
+|                             |  |                                                                    |  +**PP1302
+|                             |  |                                                                 +**| (0)
+|                             |  |                                                                 |  |  +**PP1313
+|                             |  |                                                                 |  +**| (1)
+|                             |  |                                                                 |     +**PP1768
+|                             |  |                                                              +**| (0)
+|                             |  |                                                              |  +**PP1410
+|                             |  |                                                           +**| (0)
+|                             |  |                                                           |  +**PP1149
+|                             |  |                                                        +**| (0)
+|                             |  |                                                        |  |  +--PP1255
+|                             |  |                                                        |  +**| (1)
+|                             |  |                                                        |     +--PP2009
+|                             |  |                                                     +**| (0)
+|                             |  |                                                     |  +**PP1353
+|                             |  |                                                  +**| (0)
+|                             |  |                                                  |  +**PP1722
+|                             |  |                                               +**| (0)
+|                             |  |                                               |  +**PP1495
+|                             |  |                                            +**| (0)
+|                             |  |                                            |  +**PP1357
+|                             |  |                                         +**| (0)
+|                             |  |                                         |  +--PP1352
+|                             |  |                                      +**| (0)
+|                             |  |                                      |  +**PP1997
+|                             |  |                                   +**| (0)
+|                             |  |                                   |  +**PP2038
+|                             |  |                                +**| (0)
+|                             |  |                                |  +**PP1147
+|                             |  |                             +**| (0)
+|                             |  |                             |  +**PP1343
+|                             |  |                          +**| (0)
+|                             |  |                          |  +**PP1950
+|                             |  |                       +**| (0)
+|                             |  |                       |  +--PP1122
+|                             |  |                    +**| (0)
+|                             |  |                    |  |  +**PP1544
+|                             |  |                    |  +**| (0)
+|                             |  |                    |     +**PP1679
+|                             |  |                 +**| (0)
+|                             |  |                 |  +**PP1268
+|                             |  |              +**| (0)
+|                             |  |              |  +**PP1654
+|                             |  |           +**| (0)
+|                             |  |           |  +**PP1152
+|                             |  |        +**| (0)
+|                             |  |        |  +**PP1549
+|                             |  |     +**| (0)
+|                             |  |     |  +**PP1160
+|                             |  |  +**| (0)
+|                             |  |  |  |  +**PP1547
+|                             |  |  |  +**| (0)
+|                             |  |  |     +**PP2066
+|                             |  +**| (3)
+|                             |     +**PP1668
+|                          +--| (16)
+|                          |  +--PP1876
+|                       +--| (37)
+|                       |  |  +**PP1158
+|                       |  +**| (43)
+|                       |     +**PP1408
+|                    +**| (22)
+|                    |  |                       +**PP1035
+|                    |  |                    +--| (92)
+|                    |  |                    |  +**PP1606
+|                    |  |                 +--| (78)
+|                    |  |                 |  |  +--PP1266
+|                    |  |                 |  +--| (57)
+|                    |  |                 |     |        +**PP1270
+|                    |  |                 |     |     +**| (17)
+|                    |  |                 |     |     |  +**PP1304
+|                    |  |                 |     |  +**| (33)
+|                    |  |                 |     |  |  +**PP1271
+|                    |  |                 |     +**| (67)
+|                    |  |                 |        |  +--PP1285
+|                    |  |                 |        +**| (16)
+|                    |  |                 |           +--PP1289
+|                    |  |              +--| (77)
+|                    |  |              |  |                                               +**PP1480
+|                    |  |              |  |                                            +**| (5)
+|                    |  |              |  |                                            |  +**PP1827
+|                    |  |              |  |                                         +**| (2)
+|                    |  |              |  |                                         |  |  +**PP1791
+|                    |  |              |  |                                         |  +**| (7)
+|                    |  |              |  |                                         |     +**PP2193
+|                    |  |              |  |                                      +**| (15)
+|                    |  |              |  |                                      |  +**PP1802
+|                    |  |              |  |                                   +**| (22)
+|                    |  |              |  |                                   |  +--PP1968
+|                    |  |              |  |                                +--| (61)
+|                    |  |              |  |                                |  +--PP1947
+|                    |  |              |  |                             +**| (1)
+|                    |  |              |  |                             |  +**PP2257
+|                    |  |              |  |                          +**| (0)
+|                    |  |              |  |                          |  |  +**PP1552
+|                    |  |              |  |                          |  +**| (0)
+|                    |  |              |  |                          |     |     +--PP1797
+|                    |  |              |  |                          |     |  +**| (8)
+|                    |  |              |  |                          |     |  |  +--PP1988
+|                    |  |              |  |                          |     +**| (0)
+|                    |  |              |  |                          |        +**PP1974
+|                    |  |              |  |                       +**| (0)
+|                    |  |              |  |                       |  +**PP1824
+|                    |  |              |  |                    +**| (0)
+|                    |  |              |  |                    |  +**PP1655
+|                    |  |              |  |                 +**| (0)
+|                    |  |              |  |                 |  +**PP1834
+|                    |  |              |  |              +**| (1)
+|                    |  |              |  |              |  +**PP1983
+|                    |  |              |  |           +**| (0)
+|                    |  |              |  |           |  +**PP1747
+|                    |  |              |  |        +**| (0)
+|                    |  |              |  |        |  +**PP1578
+|                    |  |              |  |     +**| (1)
+|                    |  |              |  |     |  +**PP2094
+|                    |  |              |  |  +**| (0)
+|                    |  |              |  |  |  +**PP2132
+|                    |  |              |  +--| (100)
+|                    |  |              |     |  +**PP1620
+|                    |  |              |     +**| (0)
+|                    |  |              |        |  +**PP2114
+|                    |  |              |        +**| (2)
+|                    |  |              |           +**PP2216
+|                    |  |           +--| (17)
+|                    |  |           |  +**PP1519
+|                    |  |        +**| (1)
+|                    |  |        |  +--PP1205
+|                    |  |     +**| (0)
+|                    |  |     |  |              +**PP1120
+|                    |  |     |  |           +**| (1)
+|                    |  |     |  |           |  |     +--PP1254
+|                    |  |     |  |           |  |  +**| (6)
+|                    |  |     |  |           |  |  |  +--PP1704
+|                    |  |     |  |           |  +**| (1)
+|                    |  |     |  |           |     +**PP1640
+|                    |  |     |  |        +**| (0)
+|                    |  |     |  |        |  +**PP1407
+|                    |  |     |  |     +**| (0)
+|                    |  |     |  |     |  +**PP1734
+|                    |  |     |  |  +**| (0)
+|                    |  |     |  |  |  |  +**PP1233
+|                    |  |     |  |  |  +**| (2)
+|                    |  |     |  |  |     +**PP1400
+|                    |  |     |  +**| (0)
+|                    |  |     |     +**PP1741
+|                    |  |  +**| (1)
+|                    |  |  |  +--PP2219
+|                    |  +--| (8)
+|                    |     +--PP1146
+|                 +--| (55)
+|                 |  |     +**PP1234
+|                 |  |  +**| (15)
+|                 |  |  |  +**PP1401
+|                 |  +**| (34)
+|                 |     +**PP1932
+|              +--| (90)
+|              |  +--PP2008
+|           +--| (92)
+|           |  +**PP1036
+|        +--| (99)
+|        |  |              +**PP1004
+|        |  |           +**| (1)
+|        |  |           |  |  +--PP1015
+|        |  |           |  +**| (10)
+|        |  |           |     +--PP1016
+|        |  |        +**| (0)
+|        |  |        |  |     +**PP1014
+|        |  |        |  |  +**| (6)
+|        |  |        |  |  |  +**PP1219
+|        |  |        |  +**| (2)
+|        |  |        |     +**PP1221
+|        |  |     +**| (15)
+|        |  |     |  |  +**PP1076
+|        |  |     |  +**| (23)
+|        |  |     |     +**PP1077
+|        |  |  +--| (100)
+|        |  |  |  +--PP1075
+|        |  +--| (99)
+|        |     +--Cx.pipiens
+|     +--| (66)
+|     |  +--PP1845
+|  +--| (98)
+|  |  +--PP1664
++--| (97)
+|  |     +--PP1156
+|  |  +--| (100)
+|  |  |  |     +--PP1453
+|  |  |  |  +--| (100)
+|  |  |  |  |  +--PP2181
+|  |  |  +--| (54)
+|  |  |     |  +--PP1686
+|  |  |     +--| (42)
+|  |  |        +--PP1835
+|  +--| (100)
+|     +--PP1792
+|
+|        +**PP1173
+|     +--| (100)
+|     |  +--Cx.modestus
+|  +--| (100)
+|  |  +--PP1615
++--| (58)
+   |                    +--PP1397
+   |                 +--| (82)
+   |                 |  +--PP1666
+   |              +--| (62)
+   |              |  +--PP1599
+   |           +--| (93)
+   |           |  +--PP1621
+   |        +--| (67)
+   |        |  +--PP1759
+   |     +--| (92)
+   |     |  |     +--PP1440
+   |     |  |  +--| (84)
+   |     |  |  |  |  +--PP1803
+   |     |  |  |  +--| (55)
+   |     |  |  |     +--PP1850
+   |     |  +--| (63)
+   |     |     |  +--PP1589
+   |     |     +--| (50)
+   |     |        +--PP1867
+   |  +--| (100)
+   |  |  +--Cx.laticinctus
+   +--| (57)
+      +--Cx.perexiguus
+
+Tree in newick format:
+
+(Anopheles_cruzii:4.5359137851,(((((((((((((PP1001:0.0000009970,PP1452:0.0000009970)41:0.0000009970,PP1742:0.0000676110)41:0.0000668651,(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((PP1027:0.0000009970,PP1054:0.0000009970)1:0.0000009970,PP2047:0.0000009970)0:0.0000009970,((((((((((((((((((((((((((((((((((((((((((PP1034:0.0000009970,PP1661:0.0000009970)1:0.0000009970,(((((PP1059:0.0000009970,PP1269:0.0000009970)0:0.0000009970,(((((PP1090:0.0000675537,PP2217:0.0000675767)2:0.0000009970,(PP1344:0.0000675659,PP1870:0.0000675405)0:0.0000009970)0:0.0000009970,PP1869:0.0000009970)0:0.0000009970,(PP1705:0.0000009970,PP2253:0.0000009970)0:0.0000009970)0:0.0000009970,(PP1157:0.0000009970,PP1685:0.0000009970)0:0.0000009970)1:0.0000009970)0:0.0000009970,PP1917:0.0000009970)1:0.0000009970,PP1253:0.0000675614)1:0.0000009970,(PP1671:0.0000009970,PP1810:0.0000009970)0:0.0000009970)0:0.0000009970)0:0.0000009970,PP1291:0.0000009970)0:0.0000009970,PP2080:0.0000009970)1:0.0000009970,PP1670:0.0000009970)0:0.0000009970,(PP1040:0.0000675795,(PP1041:0.0000009970,PP1828:0.0000009970)0:0.0000009970)0:0.0000009970)1:0.0000009970,(PP1207:0.0000009970,PP1575:0.0000009970)0:0.0000009970)0:0.0000009970,PP1506:0.0000009970)0:0.0000009970,PP1345:0.0000009970)0:0.0000009970,(PP1094:0.0000009970,PP1878:0.0000677232)0:0.0000009970)0:0.0000009970,PP1895:0.0000009970)0:0.0000009970,((PP1312:0.0000677033,(PP1351:0.0000677219,PP2029:0.0000677034)1:0.0000009970)0:0.0000009970,PP1526:0.0000009970)0:0.0000009970)0:0.0000009970,PP1713:0.0000677020)0:0.0000009970,PP1315:0.0000009970)0:0.0000009970,PP2032:0.0000009970)0:0.0000009970,PP1587:0.0000009970)0:0.0000009970,PP1458:0.0000009970)0:0.0000009970,PP1754:0.0000009970)0:0.0000009970,PP1348:0.0000009970)0:0.0000009970,PP1533:0.0000009970)0:0.0000009970,PP1091:0.0000675621)0:0.0000009970,PP1256:0.0000009970)0:0.0000009970,PP1290:0.0000009970)0:0.0000009970,PP1915:0.0000009970)0:0.0000009970,PP1172:0.0000009970)0:0.0000009970,PP1411:0.0000009970)0:0.0000009970,(((PP1055:0.0000675514,PP1399:0.0000675754)0:0.0000009970,(PP1058:0.0000676921,PP1308:0.0000676900)1:0.0000009970)0:0.0000009970,PP1093:0.0000009970)0:0.0000009970)0:0.0000009970,(PP1744:0.0000009970,PP1786:0.0000009970)1:0.0000009970)0:0.0000009970,PP1524:0.0000009970)0:0.0000009970,PP2144:0.0000009970)0:0.0000009970,PP1745:0.0000009970)0:0.0000009970,PP1406:0.0000009970)0:0.0000009970,PP1208:0.0000009970)0:0.0000009970,((PP1284:0.0000675762,PP1693:0.0000675800)1:0.0000009970,PP1710:0.0000675753)0:0.0000009970)0:0.0000009970,PP1174:0.0000009970)0:0.0000009970,(PP1636:0.0000009970,PP1723:0.0000009970)1:0.0000009970)0:0.0000009970,PP1159:0.0000009970)0:0.0000009970,PP1920:0.0000009970)0:0.0000009970,PP1618:0.0000009970)0:0.0000009970,PP2051:0.0000009970)0:0.0000009970,PP1162:0.0000009970)0:0.0000009970,PP1447:0.0000009970)0:0.0000009970)1:0.0000009970,(PP1232:0.0000009970,PP1566:0.0000009970)0:0.0000009970)0:0.0000009970,PP1028:0.0000676891)0:0.0000009970,PP1092:0.0000009970)0:0.0000009970,PP1032:0.0000009970)0:0.0000009970,(PP1151:0.0000009970,PP2017:0.0000009970)0:0.0000009970)0:0.0000009970,PP1709:0.0000009970)0:0.0000009970,PP1398:0.0000009970)0:0.0000009970,PP2084:0.0000009970)0:0.0000009970,PP1772:0.0000009970)0:0.0000009970,(PP1206:0.0000009970,PP1490:0.0001339557)0:0.0000009970)0:0.0000009970,PP1465:0.0000009970)0:0.0000009970,PP2106:0.0000009970)0:0.0000009970,PP1293:0.0000009970)0:0.0000009970,PP1132:0.0000009970)0:0.0000009970,PP1972:0.0000009970)0:0.0000009970,(PP1984:0.0000675604,(PP2139:0.0000675494,PP2147:0.0001339309)2:0.0000009970)1:0.0000009970)0:0.0000009970,PP1608:0.0000009970)0:0.0000009970,(PP1095:0.0000009970,PP1653:0.0000009970)0:0.0000009970)0:0.0000009970,PP1582:0.0000009970)0:0.0000009970,PP1314:0.0000009970)0:0.0000009970,(PP2070:0.0000009970,PP2191:0.0000009970)0:0.0000009970)0:0.0000009970,PP1800:0.0000009970)0:0.0000009970,(PP1346:0.0000009970,PP2128:0.0000009970)0:0.0000009970)0:0.0000009970,PP1629:0.0000009970)0:0.0000009970,((PP1265:0.0001339737,PP1807:0.0000675387)1:0.0000009970,PP1592:0.0000675602)0:0.0000009970)0:0.0000009970,PP1033:0.0000009970)0:0.0000009970,PP1148:0.0000009970)0:0.0000009970,PP1667:0.0000677101)0:0.0000009970,PP1656:0.0000009970)0:0.0000009970,PP1487:0.0000009970)0:0.0000009970,PP1456:0.0000009970)0:0.0000009970,PP1161:0.0000009970)0:0.0000009970,PP1031:0.0000009970)0:0.0000009970,(PP1493:0.0000009970,PP2145:0.0000009970)0:0.0000009970)0:0.0000009970,PP1302:0.0000009970)0:0.0000009970,(PP1313:0.0000009970,PP1768:0.0000009970)1:0.0000009970)0:0.0000009970,PP1410:0.0000009970)0:0.0000009970,PP1149:0.0000009970)0:0.0000009970,(PP1255:0.0000675594,PP2009:0.0000675524)1:0.0000009970)0:0.0000009970,PP1353:0.0000009970)0:0.0000009970,PP1722:0.0000009970)0:0.0000009970,PP1495:0.0000009970)0:0.0000009970,PP1357:0.0000009970)0:0.0000009970,PP1352:0.0000676986)0:0.0000009970,PP1997:0.0000009970)0:0.0000009970,PP2038:0.0000009970)0:0.0000009970,PP1147:0.0000009970)0:0.0000009970,PP1343:0.0000009970)0:0.0000009970,PP1950:0.0000009970)0:0.0000009970,PP1122:0.0000675791)0:0.0000009970,(PP1544:0.0000009970,PP1679:0.0000009970)0:0.0000009970)0:0.0000009970,PP1268:0.0000009970)0:0.0000009970,PP1654:0.0000009970)0:0.0000009970,PP1152:0.0000009970)0:0.0000009970,PP1549:0.0000009970)0:0.0000009970,PP1160:0.0000009970)0:0.0000009970,(PP1547:0.0000009970,PP2066:0.0000009970)0:0.0000009970)0:0.0000009970,PP1668:0.0000020292)3:0.0000020197)9:0.0000028758,PP1876:0.0000675463)16:0.0000668137,(PP1158:0.0000009970,PP1408:0.0000009970)43:0.0000020362)37:0.0000675072,((((((((PP1035:0.0000009970,PP1606:0.0000009970)92:0.0000683561,(PP1266:0.0004690470,(((PP1270:0.0000009970,PP1304:0.0000009970)17:0.0000009970,PP1271:0.0000009970)33:0.0000009970,(PP1285:0.0000675426,PP1289:0.0000675339)16:0.0000009970)67:0.0000029270)57:0.0001339681)78:0.0001338995,((((((((((((((((PP1480:0.0000009970,PP1827:0.0000009970)5:0.0000009970,(PP1791:0.0000009970,PP2193:0.0000009970)7:0.0000009970)2:0.0000009970,PP1802:0.0000009970)15:0.0000009970,PP1968:0.0000673994)22:0.0000009970,PP1947:0.0000674004)61:0.0000673970,PP2257:0.0000009970)1:0.0000009970,(PP1552:0.0000009970,((PP1797:0.0000673597,PP1988:0.0000673969)8:0.0000009970,PP1974:0.0000009970)0:0.0000009970)0:0.0000009970)0:0.0000009970,PP1824:0.0000009970)0:0.0000009970,PP1655:0.0000009970)0:0.0000009970,PP1834:0.0000009970)0:0.0000009970,PP1983:0.0000009970)1:0.0000009970,PP1747:0.0000009970)0:0.0000009970,PP1578:0.0000009970)0:0.0000009970,PP2094:0.0000009970)1:0.0000009970,PP2132:0.0000009970)0:0.0000009970,(PP1620:0.0000009970,(PP2114:0.0000009970,PP2216:0.0000009970)2:0.0000009970)0:0.0000009970)100:0.0004693597)77:0.0001334665,PP1519:0.0000009970)17:0.0000674757,PP1205:0.0000674963)1:0.0000009970,(((((PP1120:0.0000009970,((PP1254:0.0001338271,PP1704:0.0000674876)6:0.0000009970,PP1640:0.0000009970)1:0.0000009970)1:0.0000009970,PP1407:0.0000009970)0:0.0000009970,PP1734:0.0000009970)0:0.0000009970,(PP1233:0.0000009970,PP1400:0.0000009970)2:0.0000009970)0:0.0000009970,PP1741:0.0000009970)0:0.0000009970)0:0.0000009970,PP2219:0.0000674873)1:0.0000009970,PP1146:0.0000668284)8:0.0000663420)22:0.0000029494,((PP1234:0.0000009970,PP1401:0.0000009970)15:0.0000009970,PP1932:0.0000009970)34:0.0000028757)55:0.0000676082,PP2008:0.0001336565)90:0.0002683324,PP1036:0.0000009970)92:0.0003424324,(((((PP1004:0.0000009970,(PP1015:0.0000677457,PP1016:0.0000677169)10:0.0000009970)1:0.0000009970,((PP1014:0.0000009970,PP1219:0.0000009970)6:0.0000009970,PP1221:0.0000009970)2:0.0000009970)0:0.0000009970,(PP1076:0.0000009970,PP1077:0.0000009970)23:0.0000009970)15:0.0000009970,PP1075:0.0000676961)100:0.0004716445,Cx.pipiens:0.0001343407)99:0.0002625106)99:0.0050471885,PP1845:0.0056930969)66:0.0014898812,PP1664:0.0060994488)98:0.0090429336,((PP1156:0.0015615991,((PP1453:0.0003366754,PP2181:0.0003359152)100:0.0010081724,(PP1686:0.0016176057,PP1835:0.0015030671)42:0.0000697504)54:0.0001925984)100:0.0018178059,PP1792:0.0010224310)100:0.0103598300)97:0.0217734811,(((PP1173:0.0000009970,Cx.modestus:0.0064792207)100:0.0004176532,PP1615:0.0001147829)100:0.0535408768,(((((((PP1397:0.0011946644,PP1666:0.0012197097)82:0.0003599889,PP1599:0.0012223365)62:0.0002965309,PP1621:0.0008517789)93:0.0014462279,PP1759:0.0023983209)67:0.0008781113,((PP1440:0.0014119679,(PP1803:0.0009116687,PP1850:0.0007698229)55:0.0001781569)84:0.0002895664,(PP1589:0.0007448727,PP1867:0.0017635062)50:0.0004443575)63:0.0005398491)92:0.0062387378,Cx.laticinctus:0.0282175818)100:0.0326634183,Cx.perexiguus:0.0792257259)57:0.0097247162)58:0.0016075537);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000 bootstrap trees
+Log-likelihood of consensus tree: -55043.579136
+Robinson-Foulds distance between ML tree and consensus tree: 312
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++-----------------------------------------------------------Anopheles_cruzii
+|
+|                                      +--PP1001
+|                                   +--| (41)
+|                                   |  +--PP1452
+|                                +--| (41)
+|                                |  +--PP1742
+|                             +--| (9)
+|                             |  |        +--PP1027
+|                             |  |     +--| (1)
+|                             |  |     |  +--PP1172
+|                             |  |  +--| (0)
+|                             |  |  |  |  +--PP1028
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1984
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1031
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  +--PP1629
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1032
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1148
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1033
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1667
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1034
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2029
+|                             |  |  |  |
+|                             |  |  |  |                                                                 +--PP1040
+|                             |  |  |  |                                                              +--| (8)
+|                             |  |  |  |                                                              |  |              +--PP1095
+|                             |  |  |  |                                                              |  |           +--| (13)
+|                             |  |  |  |                                                              |  |           |  |     +--PP1159
+|                             |  |  |  |                                                              |  |           |  |  +--| (13)
+|                             |  |  |  |                                                              |  |           |  |  |  |  +--PP1549
+|                             |  |  |  |                                                              |  |           |  |  |  +--| (13)
+|                             |  |  |  |                                                              |  |           |  |  |     |  +--PP1592
+|                             |  |  |  |                                                              |  |           |  |  |     +--| (13)
+|                             |  |  |  |                                                              |  |           |  |  |        +--PP2217
+|                             |  |  |  |                                                              |  |           |  +--| (13)
+|                             |  |  |  |                                                              |  |           |     +--PP2084
+|                             |  |  |  |                                                              |  |        +--| (12)
+|                             |  |  |  |                                                              |  |        |  +--PP1232
+|                             |  |  |  |                                                              |  |     +--| (12)
+|                             |  |  |  |                                                              |  |     |  +--PP1399
+|                             |  |  |  |                                                              |  |  +--| (9)
+|                             |  |  |  |                                                              |  |  |  +--PP1772
+|                             |  |  |  |                                                              |  +--| (8)
+|                             |  |  |  |                                                              |     +--PP2147
+|                             |  |  |  |                                                           +--| (8)
+|                             |  |  |  |                                                           |  +--PP1352
+|                             |  |  |  |                                                        +--| (8)
+|                             |  |  |  |                                                        |  +--PP1575
+|                             |  |  |  |                                                     +--| (8)
+|                             |  |  |  |                                                     |  +--PP1174
+|                             |  |  |  |                                                  +--| (8)
+|                             |  |  |  |                                                  |  +--PP1093
+|                             |  |  |  |                                               +--| (8)
+|                             |  |  |  |                                               |  +--PP1313
+|                             |  |  |  |                                            +--| (8)
+|                             |  |  |  |                                            |  +--PP1345
+|                             |  |  |  |                                         +--| (8)
+|                             |  |  |  |                                         |  +--PP1661
+|                             |  |  |  |                                      +--| (8)
+|                             |  |  |  |                                      |  +--PP1207
+|                             |  |  |  |                                   +--| (8)
+|                             |  |  |  |                                   |  +--PP2128
+|                             |  |  |  |                                +--| (8)
+|                             |  |  |  |                                |  +--PP1456
+|                             |  |  |  |                             +--| (8)
+|                             |  |  |  |                             |  +--PP1547
+|                             |  |  |  |                          +--| (8)
+|                             |  |  |  |                          |  +--PP1723
+|                             |  |  |  |                       +--| (2)
+|                             |  |  |  |                       |  +--PP1618
+|                             |  |  |  |                    +--| (2)
+|                             |  |  |  |                    |  +--PP2017
+|                             |  |  |  |                 +--| (2)
+|                             |  |  |  |                 |  +--PP1679
+|                             |  |  |  |              +--| (2)
+|                             |  |  |  |              |  +--PP2009
+|                             |  |  |  |           +--| (2)
+|                             |  |  |  |           |  +--PP1495
+|                             |  |  |  |        +--| (2)
+|                             |  |  |  |        |  +--PP1314
+|                             |  |  |  |     +--| (2)
+|                             |  |  |  |     |  +--PP1357
+|                             |  |  |  |  +--| (2)
+|                             |  |  |  |  |  +--PP1059
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1705
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1041
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  +--PP2144
+|                             |  |  |  |
+|                             |  |  |  |     +--PP1054
+|                             |  |  |  |  +--| (1)
+|                             |  |  |  |  |  +--PP1920
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  |  +--PP1636
+|                             |  |  |  |  +--| (1)
+|                             |  |  |  |     +--PP1972
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1055
+|                             |  |  |  +--| (3)
+|                             |  |  |  |  +--PP1490
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1058
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1713
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1090
+|                             |  |  |  +--| (3)
+|                             |  |  |  |  +--PP1284
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1091
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1255
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1092
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1410
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1094
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1406
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1122
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1351
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1132
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1670
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1147
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2066
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1149
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1608
+|                             |  |  |  |
+|                             |  |  |  |     +--PP1151
+|                             |  |  |  |  +--| (1)
+|                             |  |  |  |  |  +--PP1493
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  |  +--PP1206
+|                             |  |  |  |  +--| (1)
+|                             |  |  |  |     +--PP2106
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1152
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1869
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1157
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1293
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1160
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1754
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1161
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1506
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1162
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1447
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1208
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1800
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1253
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1308
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1256
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1268
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1269
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1915
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1290
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1895
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1291
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1465
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1302
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2047
+|                             |  |  |  |
+|                             |  |  |  |     +--PP1312
+|                             |  |  |  |  +--| (2)
+|                             |  |  |  |  |  +--PP1693
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  +--PP2080
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1315
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  |  +--PP1346
+|                             |  |  |  |  +--| (1)
+|                             |  |  |  |     +--PP1398
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1343
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1544
+|                             |  |  |  |
+|                             |  |  |  +--PP1344
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1348
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1411
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1353
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1587
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1458
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1566
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1487
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1917
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1524
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1745
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1526
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2038
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1533
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1950
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1582
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1744
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1653
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2070
+|                             |  |  |  |
+|                             |  |  |  |     +--PP1654
+|                             |  |  |  |  +--| (2)
+|                             |  |  |  |  |  +--PP1722
+|                             |  |  |  +--| (0)
+|                             |  |  |  |  +--PP1656
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1668
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2191
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1671
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2253
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1685
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1768
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1709
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP1997
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1710
+|                             |  |  |  +--| (2)
+|                             |  |  |  |  +--PP1807
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1786
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2032
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1810
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2145
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1828
+|                             |  |  |  +--| (1)
+|                             |  |  |  |  +--PP2051
+|                             |  |  |  |
+|                             |  |  |  |  +--PP1870
+|                             |  |  |  +--| (2)
+|                             |  |  |     +--PP2139
+|                             |  +--| (3)
+|                             |     |  +--PP1265
+|                             |     +--| (3)
+|                             |        +--PP1878
+|                          +--| (16)
+|                          |  +--PP1876
+|                       +--| (37)
+|                       |  |  +--PP1158
+|                       |  +--| (43)
+|                       |     +--PP1408
+|                    +--| (22)
+|                    |  |              +--PP1035
+|                    |  |           +--| (92)
+|                    |  |           |  +--PP1606
+|                    |  |        +--| (78)
+|                    |  |        |  |  +--PP1266
+|                    |  |        |  +--| (57)
+|                    |  |        |     |           +--PP1270
+|                    |  |        |     |        +--| (20)
+|                    |  |        |     |        |  +--PP1271
+|                    |  |        |     |     +--| (33)
+|                    |  |        |     |     |  +--PP1304
+|                    |  |        |     |  +--| (25)
+|                    |  |        |     |  |  +--PP1285
+|                    |  |        |     +--| (67)
+|                    |  |        |        +--PP1289
+|                    |  |     +--| (77)
+|                    |  |     |  |                       +--PP1480
+|                    |  |     |  |                    +--| (9)
+|                    |  |     |  |                    |  +--PP1802
+|                    |  |     |  |                 +--| (3)
+|                    |  |     |  |                 |  |  +--PP1827
+|                    |  |     |  |                 |  +--| (8)
+|                    |  |     |  |                 |     +--PP2193
+|                    |  |     |  |              +--| (15)
+|                    |  |     |  |              |  +--PP1791
+|                    |  |     |  |           +--| (22)
+|                    |  |     |  |           |  +--PP1968
+|                    |  |     |  |        +--| (61)
+|                    |  |     |  |        |  +--PP1947
+|                    |  |     |  |     +--| (15)
+|                    |  |     |  |     |  |                    +--PP1552
+|                    |  |     |  |     |  |                 +--| (9)
+|                    |  |     |  |     |  |                 |  |                 +--PP1578
+|                    |  |     |  |     |  |                 |  |              +--| (17)
+|                    |  |     |  |     |  |                 |  |              |  +--PP1797
+|                    |  |     |  |     |  |                 |  |           +--| (10)
+|                    |  |     |  |     |  |                 |  |           |  +--PP1988
+|                    |  |     |  |     |  |                 |  |        +--| (9)
+|                    |  |     |  |     |  |                 |  |        |  +--PP1620
+|                    |  |     |  |     |  |                 |  |     +--| (9)
+|                    |  |     |  |     |  |                 |  |     |  +--PP1834
+|                    |  |     |  |     |  |                 |  |  +--| (9)
+|                    |  |     |  |     |  |                 |  |  |  +--PP2114
+|                    |  |     |  |     |  |                 |  +--| (9)
+|                    |  |     |  |     |  |                 |     +--PP2257
+|                    |  |     |  |     |  |              +--| (9)
+|                    |  |     |  |     |  |              |  +--PP1974
+|                    |  |     |  |     |  |           +--| (9)
+|                    |  |     |  |     |  |           |  +--PP2132
+|                    |  |     |  |     |  |        +--| (9)
+|                    |  |     |  |     |  |        |  +--PP1655
+|                    |  |     |  |     |  |     +--| (9)
+|                    |  |     |  |     |  |     |  +--PP2094
+|                    |  |     |  |     |  |  +--| (9)
+|                    |  |     |  |     |  |  |  +--PP1983
+|                    |  |     |  |     |  +--| (9)
+|                    |  |     |  |     |     +--PP2216
+|                    |  |     |  |  +--| (17)
+|                    |  |     |  |  |  +--PP1747
+|                    |  |     |  +--| (100)
+|                    |  |     |     +--PP1824
+|                    |  |  +--| (17)
+|                    |  |  |  +--PP1519
+|                    |  +--| (8)
+|                    |     |           +--PP1120
+|                    |     |        +--| (4)
+|                    |     |        |  +--PP1233
+|                    |     |     +--| (0)
+|                    |     |     |  |  +--PP1146
+|                    |     |     |  +--| (1)
+|                    |     |     |  |  +--PP1400
+|                    |     |     |  |
+|                    |     |     |  |     +--PP1407
+|                    |     |     |  |  +--| (4)
+|                    |     |     |  |  |  +--PP1734
+|                    |     |     |  +--| (0)
+|                    |     |     |     |  +--PP1640
+|                    |     |     |     +--| (4)
+|                    |     |     |        +--PP1741
+|                    |     |  +--| (1)
+|                    |     |  |  |  +--PP1704
+|                    |     |  |  +--| (3)
+|                    |     |  |     +--PP2219
+|                    |     +--| (3)
+|                    |        |  +--PP1205
+|                    |        +--| (8)
+|                    |           +--PP1254
+|                 +--| (55)
+|                 |  |     +--PP1234
+|                 |  |  +--| (15)
+|                 |  |  |  +--PP1401
+|                 |  +--| (34)
+|                 |     +--PP1932
+|              +--| (90)
+|              |  +--PP2008
+|           +--| (92)
+|           |  +--PP1036
+|        +--| (99)
+|        |  |              +--PP1004
+|        |  |           +--| (6)
+|        |  |           |  +--PP1219
+|        |  |        +--| (2)
+|        |  |        |  |  +--PP1014
+|        |  |        |  +--| (8)
+|        |  |        |     +--PP1221
+|        |  |     +--| (31)
+|        |  |     |  |     +--PP1015
+|        |  |     |  |  +--| (18)
+|        |  |     |  |  |  |  +--PP1076
+|        |  |     |  |  |  +--| (23)
+|        |  |     |  |  |     +--PP1077
+|        |  |     |  +--| (17)
+|        |  |     |     +--PP1075
+|        |  |  +--| (100)
+|        |  |  |  +--PP1016
+|        |  +--| (99)
+|        |     +--Cx.pipiens
+|     +--| (66)
+|     |  +--PP1845
+|  +--| (98)
+|  |  +--PP1664
++--| (97)
+|  |     +--PP1156
+|  |  +--| (100)
+|  |  |  |     +--PP1453
+|  |  |  |  +--| (100)
+|  |  |  |  |  +--PP2181
+|  |  |  +--| (54)
+|  |  |     |  +--PP1686
+|  |  |     +--| (42)
+|  |  |        +--PP1835
+|  +--| (100)
+|     +--PP1792
+|
+|        +--PP1173
+|     +--| (100)
+|     |  +--Cx.modestus
+|  +--| (100)
+|  |  +--PP1615
++--| (58)
+   |                    +--PP1397
+   |                 +--| (82)
+   |                 |  +--PP1666
+   |              +--| (62)
+   |              |  +--PP1599
+   |           +--| (93)
+   |           |  +--PP1621
+   |        +--| (67)
+   |        |  +--PP1759
+   |     +--| (92)
+   |     |  |     +--PP1440
+   |     |  |  +--| (84)
+   |     |  |  |  |  +--PP1803
+   |     |  |  |  +--| (55)
+   |     |  |  |     +--PP1850
+   |     |  +--| (63)
+   |     |     |  +--PP1589
+   |     |     +--| (50)
+   |     |        +--PP1867
+   |  +--| (100)
+   |  |  +--Cx.laticinctus
+   +--| (57)
+      +--Cx.perexiguus
+
+
+Consensus tree in newick format: 
+
+(Anopheles_cruzii:4.5347069717,(((((((((((((PP1001:0.0000025259,PP1452:0.0000025259)41:0.0000025259,PP1742:0.0000671637)41:0.0000671272,(((PP1027:0.0000025259,PP1172:0.0000025259)1:0.0000025259,(PP1028:0.0000671010,PP1984:0.0000671138)2:0.0000025259,(PP1031:0.0000025259,PP1629:0.0000025259)0:0.0000025259,(PP1032:0.0000025259,PP1148:0.0000025259)1:0.0000025259,(PP1033:0.0000025259,PP1667:0.0000671222)1:0.0000025259,(PP1034:0.0000025259,PP2029:0.0000671122)1:0.0000025259,((((((((((((((((((((((PP1040:0.0000671316,(((((PP1095:0.0000025259,((PP1159:0.0000025259,(PP1549:0.0000025259,(PP1592:0.0000671142,PP2217:0.0000671289)13:0.0000025259)13:0.0000025259)13:0.0000025259,PP2084:0.0000025259)13:0.0000025259)13:0.0000025259,PP1232:0.0000025259)12:0.0000025259,PP1399:0.0000671293)12:0.0000025259,PP1772:0.0000025259)9:0.0000025259,PP2147:0.0001342512)8:0.0000025259)8:0.0000025259,PP1352:0.0000671133)8:0.0000025259,PP1575:0.0000025259)8:0.0000025259,PP1174:0.0000025259)8:0.0000025259,PP1093:0.0000025259)8:0.0000025259,PP1313:0.0000025259)8:0.0000025259,PP1345:0.0000025259)8:0.0000025259,PP1661:0.0000025259)8:0.0000025259,PP1207:0.0000025259)8:0.0000025259,PP2128:0.0000025259)8:0.0000025259,PP1456:0.0000025259)8:0.0000025259,PP1547:0.0000025259)8:0.0000025259,PP1723:0.0000025259)8:0.0000025259,PP1618:0.0000025259)2:0.0000025259,PP2017:0.0000025259)2:0.0000025259,PP1679:0.0000025259)2:0.0000025259,PP2009:0.0000671059)2:0.0000025259,PP1495:0.0000025259)2:0.0000025259,PP1314:0.0000025259)2:0.0000025259,PP1357:0.0000025259)2:0.0000025259,PP1059:0.0000025259)2:0.0000025259,PP1705:0.0000025259)2:0.0000025259,(PP1041:0.0000025259,PP2144:0.0000025259)0:0.0000025259,((PP1054:0.0000025259,PP1920:0.0000025259)1:0.0000025259,(PP1636:0.0000025259,PP1972:0.0000025259)1:0.0000025259)0:0.0000025259,(PP1055:0.0000671000,PP1490:0.0001342718)3:0.0000025259,(PP1058:0.0000671027,PP1713:0.0000671136)2:0.0000025259,(PP1090:0.0000671047,PP1284:0.0000671281)3:0.0000025259,(PP1091:0.0000671129,PP1255:0.0000671116)2:0.0000025259,(PP1092:0.0000025259,PP1410:0.0000025259)1:0.0000025259,(PP1094:0.0000025259,PP1406:0.0000025259)1:0.0000025259,(PP1122:0.0000671311,PP1351:0.0000671308)1:0.0000025259,(PP1132:0.0000025259,PP1670:0.0000025259)1:0.0000025259,(PP1147:0.0000025259,PP2066:0.0000025259)1:0.0000025259,(PP1149:0.0000025259,PP1608:0.0000025259)1:0.0000025259,((PP1151:0.0000025259,PP1493:0.0000025259)1:0.0000025259,(PP1206:0.0000025259,PP2106:0.0000025259)1:0.0000025259)0:0.0000025259,(PP1152:0.0000025259,PP1869:0.0000025259)1:0.0000025259,(PP1157:0.0000025259,PP1293:0.0000025259)1:0.0000025259,(PP1160:0.0000025259,PP1754:0.0000025259)1:0.0000025259,(PP1161:0.0000025259,PP1506:0.0000025259)1:0.0000025259,(PP1162:0.0000025259,PP1447:0.0000025259)1:0.0000025259,(PP1208:0.0000025259,PP1800:0.0000025259)1:0.0000025259,(PP1253:0.0000671136,PP1308:0.0000671004)2:0.0000025259,(PP1256:0.0000025259,PP1268:0.0000025259)1:0.0000025259,(PP1269:0.0000025259,PP1915:0.0000025259)1:0.0000025259,(PP1290:0.0000025259,PP1895:0.0000025259)1:0.0000025259,(PP1291:0.0000025259,PP1465:0.0000025259)1:0.0000025259,(PP1302:0.0000025259,PP2047:0.0000025259)1:0.0000025259,((PP1312:0.0000671112,PP1693:0.0000671293)2:0.0000025259,PP2080:0.0000025259)0:0.0000025259,(PP1315:0.0000025259,(PP1346:0.0000025259,PP1398:0.0000025259)1:0.0000025259)0:0.0000025259,(PP1343:0.0000025259,PP1544:0.0000025259)1:0.0000025259,PP1344:0.0000671182,(PP1348:0.0000025259,PP1411:0.0000025259)1:0.0000025259,(PP1353:0.0000025259,PP1587:0.0000025259)1:0.0000025259,(PP1458:0.0000025259,PP1566:0.0000025259)1:0.0000025259,(PP1487:0.0000025259,PP1917:0.0000025259)1:0.0000025259,(PP1524:0.0000025259,PP1745:0.0000025259)1:0.0000025259,(PP1526:0.0000025259,PP2038:0.0000025259)1:0.0000025259,(PP1533:0.0000025259,PP1950:0.0000025259)1:0.0000025259,(PP1582:0.0000025259,PP1744:0.0000025259)1:0.0000025259,(PP1653:0.0000025259,PP2070:0.0000025259)1:0.0000025259,((PP1654:0.0000025259,PP1722:0.0000025259)2:0.0000025259,PP1656:0.0000025259)0:0.0000025259,(PP1668:0.0000025259,PP2191:0.0000025259)1:0.0000025259,(PP1671:0.0000025259,PP2253:0.0000025259)1:0.0000025259,(PP1685:0.0000025259,PP1768:0.0000025259)1:0.0000025259,(PP1709:0.0000025259,PP1997:0.0000025259)1:0.0000025259,(PP1710:0.0000671296,PP1807:0.0000670893)2:0.0000025259,(PP1786:0.0000025259,PP2032:0.0000025259)1:0.0000025259,(PP1810:0.0000025259,PP2145:0.0000025259)1:0.0000025259,(PP1828:0.0000025259,PP2051:0.0000025259)1:0.0000025259,(PP1870:0.0000670894,PP2139:0.0000671031)2:0.0000025259)0:0.0000025259,(PP1265:0.0001342863,PP1878:0.0000671291)3:0.0000025259)3:0.0000025259)9:0.0000025259,PP1876:0.0000670917)16:0.0000670664,(PP1158:0.0000025259,PP1408:0.0000025259)43:0.0000025259)37:0.0000670679,(((((PP1035:0.0000025259,PP1606:0.0000025259)92:0.0000678365,(PP1266:0.0004705400,((((PP1270:0.0000025259,PP1271:0.0000025259)20:0.0000025259,PP1304:0.0000025259)33:0.0000025259,PP1285:0.0000671630)25:0.0000025259,PP1289:0.0000671546)67:0.0000025259)57:0.0001343683)78:0.0001344165,((((((((PP1480:0.0000025259,PP1802:0.0000025259)9:0.0000025259,(PP1827:0.0000025259,PP2193:0.0000025259)8:0.0000025259)3:0.0000025259,PP1791:0.0000025259)15:0.0000025259,PP1968:0.0000670142)22:0.0000025259,PP1947:0.0000670164)61:0.0000670134,(((((((PP1552:0.0000025259,((((((PP1578:0.0000025259,PP1797:0.0000669767)17:0.0000025259,PP1988:0.0000670131)10:0.0000025259,PP1620:0.0000025259)9:0.0000025259,PP1834:0.0000025259)9:0.0000025259,PP2114:0.0000025259)9:0.0000025259,PP2257:0.0000025259)9:0.0000025259)9:0.0000025259,PP1974:0.0000025259)9:0.0000025259,PP2132:0.0000025259)9:0.0000025259,PP1655:0.0000025259)9:0.0000025259,PP2094:0.0000025259)9:0.0000025259,PP1983:0.0000025259)9:0.0000025259,PP2216:0.0000025259)9:0.0000025259)15:0.0000025259,PP1747:0.0000025259)17:0.0000025259,PP1824:0.0000025259)100:0.0004707670)77:0.0001338735,PP1519:0.0000025522)17:0.0000679841,((((PP1120:0.0000025259,PP1233:0.0000025259)4:0.0000025259,(PP1146:0.0000671336,PP1400:0.0000025259)1:0.0000025259,((PP1407:0.0000025259,PP1734:0.0000025259)4:0.0000025259,(PP1640:0.0000025259,PP1741:0.0000025259)4:0.0000025259)0:0.0000025259)0:0.0000025259,(PP1704:0.0000671148,PP2219:0.0000671159)3:0.0000025259)1:0.0000025259,(PP1205:0.0000671269,PP1254:0.0001342225)8:0.0000025259)3:0.0000025259)8:0.0000670722)22:0.0000025259,((PP1234:0.0000025259,PP1401:0.0000025259)15:0.0000025259,PP1932:0.0000025259)34:0.0000025259)55:0.0000672190,PP2008:0.0001340325)90:0.0002691543,PP1036:0.0000025259)92:0.0003441190,(((((PP1004:0.0000025259,PP1219:0.0000025259)6:0.0000025259,(PP1014:0.0000025259,PP1221:0.0000025259)8:0.0000025259)2:0.0000025259,((PP1015:0.0000673135,(PP1076:0.0000025259,PP1077:0.0000025259)23:0.0000025259)18:0.0000025259,PP1075:0.0000672694)17:0.0000025259)31:0.0000025259,PP1016:0.0000672842)100:0.0004729289,Cx.pipiens:0.0001347535)99:0.0002635579)99:0.0050594269,PP1845:0.0057064028)66:0.0014935493,PP1664:0.0061145171)98:0.0090648593,((PP1156:0.0015654660,((PP1453:0.0003378477,PP2181:0.0003370873)100:0.0010103210,(PP1686:0.0016211650,PP1835:0.0015061870)42:0.0000693916)54:0.0001929775)100:0.0018222628,PP1792:0.0010241014)100:0.0103849382)97:0.0214129317,(((PP1173:0.0000025259,Cx.modestus:0.0064939267)100:0.0004182884,PP1615:0.0001144058)100:0.0536852915,(((((((PP1397:0.0011967884,PP1666:0.0012219426)82:0.0003618573,PP1599:0.0012240102)62:0.0002977364,PP1621:0.0008528230)93:0.0014495633,PP1759:0.0024030833)67:0.0008812992,((PP1440:0.0014139326,(PP1803:0.0009136071,PP1850:0.0007712714)55:0.0001789241)84:0.0002900540,(PP1589:0.0007456992,PP1867:0.0017665888)50:0.0004458975)63:0.0005392690)92:0.0062531354,Cx.laticinctus:0.0282754396)100:0.0327429785,Cx.perexiguus:0.0794075192)57:0.0097454245)58:0.0019903033);
+
+ALISIM COMMAND
+--------------
+To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
+
+--alisim simulated_MSA -t mitoc_pipiens1234_tree.treefile -m "K3Pu{10.68,1.78985}+F{0.387608,0.0918992,0.126473,0.394019}+I{0.166513}+R2{0.732788,0.311945,0.100699,7.66054}" --length 18033
+
+To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
+
+iqtree -s aligned_mitoc_seq_pipiens1234.fasta --alisim mimicked_MSA
+
+To simulate any number of alignments in either of the two commandlines above, use the --num-alignments options, for example mimic 100 alignments you would use the command line:
+
+iqtree -s aligned_mitoc_seq_pipiens1234.fasta --alisim mimicked_MSA --num-alignments 100
+
+For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
+
+TIME STAMP
+----------
+
+Date and time: Fri May  9 15:24:25 2025
+Total CPU time used: 618648.6472 seconds (171h:50m:48s)
+Total wall-clock time used: 91481.18694 seconds (25h:24m:41s)
+

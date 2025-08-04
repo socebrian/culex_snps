@@ -1,0 +1,4 @@
+Starting IQ-TREE with model selection and 1000 bootstraps...
+iqtree-mitoc-tree.sh: line 4: iqtree2: command not found
+Finished.
+Tree with bootstrap support: pREFIX.treefile

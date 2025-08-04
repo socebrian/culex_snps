@@ -1,0 +1,303 @@
+---
+title: "ADMIXTUREAnalisis"
+author: "Mari Jose"
+date: "2024-07-07"
+output: html_document
+---
+Plotear los valores de error del cross validation nos ayuda a tomar decisiones sobre el "correcto" numero de K
+
+```{r}
+library(ggplot2)
+
+# read cv file
+cv_table <- read.table("/Users/Mari/Desktop/Admixture PipiensMayo2025/cv_table.txt", col.names = c("K", "CVerr"))
+
+# plot cv values
+cvplot <- ggplot() +
+  geom_line(data = cv_table,
+    aes(x = K, y = CVerr)) +
+  geom_point(data = cv_table,
+    aes(x = K, y = CVerr),
+    fill = "grey", shape = 21, size = 2.5) +
+  xlab(paste0("Number of Populations")) +
+  ylab(paste0("Cross Validation Error")) +
+  scale_x_continuous(n.breaks = 8) +
+  theme_bw()
+ggsave(filename = "/Users/Mari/Desktop/Admixture PipiensMayo2025/data1.cvplot.pdf", plot = cvplot)
+```
+
+Diferentes criterios se pueden usar para determinar el mejor numero de K. De los m??s comunes:
+- valor de K donde el error de cv es m??nimo
+- valor de K donde mejora m??s el error de cv en un paso
+
+*La informaci??n sobre la biolog??a de la especie es importante!*
+
+Ploteamos como nuestras muestras se dividir??an con K=2, K=3 y K=4:
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+# sample names
+#samples <- read.table("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.fam", sep = " ",
+                     # col.names = c("FID", "IID", "father",
+                                   # "mother", "sex", "pheno"))[2]
+
+# loop through k 1 to 3
+for (k in 1:3){
+  # q values
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.", k, ".Q"),
+                    col.names = paste0("Q",seq(1:k)))
+  # join dataframe
+  admix <- cbind(samples, qvals) %>% gather(Q, value, -IID)
+  # plot
+  admix_plot <- ggplot(admix, aes(x = IID, y = value, fill = factor(Q))) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Sample") + ylab("Ancestry") +
+    theme_bw() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  ggsave(filename = paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiensnames.plot.K", k,".pdf"),
+         plot = admix_plot, width = 35, height = 10, units = "cm")
+}
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Quiero reorganizar el orden en funci??n de la localidad 
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# sample names
+samples <- read.table("/Users/Mari/Desktop/Culex/culex2.fam", sep = " ",
+                      col.names = c("FID", "IID", "loc", "mother", "sex", "pheno"))[, c("IID", "loc")]
+
+# loop through k 1 to 3
+for (k in 1:3){
+  # q values
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Culex/culex2.", k, ".Q"),
+                      col.names = paste0("Q", seq(1:k)))
+  # join dataframe
+  admix <- cbind(samples, qvals) %>% gather(Q, value, -IID, -loc)
+  
+  # Sort by locality
+  admix <- admix %>% arrange(loc, IID)
+  
+  # Create a factor for IID with levels in the order of appearance in the sorted dataframe
+  admix$IID <- factor(admix$IID, levels = unique(admix$IID))
+  
+  # plot
+  admix_plot <- ggplot(admix, aes(x = IID, y = value, fill = factor(Q))) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Sample") + ylab("Ancestry") +
+    theme_bw() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  
+  # Save plot
+  ggsave(filename = paste0("/Users/Mari/Desktop/Culex/culex2reordered.plot.K", k, ".pdf"),
+         plot = admix_plot, width = 35, height = 10, units = "cm")
+}
+```
+
+Pero asi no me salen los nombres de las provincias
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# sample names
+samples <- read.table("/Users/Mari/Desktop/Culex/culex2.fam", sep = " ",
+                      col.names = c("FID", "IID", "loc", "mother", "sex", "pheno"))[, c("IID", "loc")]
+
+# loop through k 1 to 3
+for (k in 1:3){
+  # q values
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Culex/culex2.", k, ".Q"),
+                      col.names = paste0("Q", seq(1:k)))
+  # join dataframe
+  admix <- cbind(samples, qvals) %>% gather(Q, value, -IID, -loc)
+  
+  # Sort by locality
+  admix <- admix %>% arrange(loc, IID)
+  
+  # Create a custom label for IID that includes both the IID and the loc
+  admix$IID_loc <- factor(paste(admix$IID, admix$loc, sep = "_"), levels = unique(paste(admix$IID, admix$loc, sep = "_")))
+  
+  # plot
+  admix_plot <- ggplot(admix, aes(x = IID_loc, y = value, fill = factor(Q))) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Sample (Location)") + ylab("Ancestry") +
+    theme_bw() + theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 8))
+  
+  # Save plot
+  ggsave(filename = paste0("/Users/Mari/Desktop/Culex/culex2reordered2.plot.K", k, ".pdf"),
+         plot = admix_plot, width = 35, height = 10, units = "cm")
+}
+```
+
+Withouth having the names because I can't access the plots: 
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# Loop over K from 2 to 5
+for (k in 2:5) {
+  # Read Q file
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.", k, ".Q"),
+                      col.names = paste0("Q", seq_len(k)))
+
+  # Create a dummy sample ID column (1, 2, ..., N)
+  qvals$ID <- seq_len(nrow(qvals))
+
+  # Reshape for plotting
+  admix <- qvals %>%
+    pivot_longer(cols = starts_with("Q"), names_to = "Q", values_to = "value")
+
+  # Plot without sample names
+  admix_plot <- ggplot(admix, aes(x = ID, y = value, fill = factor(Q))) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Individual") + ylab("Ancestry") +
+    theme_bw() +
+    theme(axis.text.x = element_blank(),  # No sample names
+          axis.ticks.x = element_blank())
+
+  # Save plot
+  ggsave(filename = paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens.plot.K", k, ".pdf"),
+         plot = admix_plot, width = 35, height = 10, units = "cm")
+}
+```
+
+Pongo la informacion de loc y provincia desde un csv file 
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(readr)
+
+# 1. Read the .fam file
+fam <- read.table("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.fam", sep = " ",
+                  col.names = c("FID", "IID", "father", "mother", "sex", "pheno")) %>%
+  select(IID)
+
+# 2. Read metadata with semicolon delimiter
+metadata <- read_delim("/Users/Mari/Desktop/Admixture PipiensMayo2025/Locsamples.csv", delim = ";")
+
+# 3. Merge metadata and handle missing values
+samples <- fam %>%
+  left_join(metadata, by = c("IID" = "ID")) %>%
+  mutate(
+    LOC = ifelse(is.na(LOC), "Unknown", LOC),
+    Provincia = ifelse(is.na(Provincia), "Unknown", Provincia)
+  )
+
+# 4. Loop through K values
+for (k in 2:5) {
+  # Read Q values
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.", k, ".Q"),
+                      col.names = paste0("Q", seq_len(k)))
+
+  if (nrow(qvals) != nrow(samples)) {
+    stop(paste("Mismatch: Q file (", nrow(qvals), ") rows != samples (", nrow(samples), ") at K =", k))
+  }
+
+  # Combine metadata + Q
+  admix <- bind_cols(samples, qvals)
+
+  # Order by Provincia, then LOC
+  admix <- admix %>%
+    arrange(Provincia, LOC) %>%
+    mutate(IID = factor(IID, levels = unique(IID)))
+
+  # Reshape for plotting
+  admix_long <- admix %>%
+    pivot_longer(cols = starts_with("Q"), names_to = "Q", values_to = "value")
+
+  # Plot with LOC faceting using facet_wrap
+  admix_plot <- ggplot(admix_long, aes(x = IID, y = value, fill = Q)) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Individual") + ylab("Ancestry") +
+    facet_wrap(~ LOC, scales = "free_x", nrow = 2) +  # wrap LOC facets
+    theme_bw() +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+      strip.text = element_text(size = 10, face = "bold"),
+      strip.background = element_rect(fill = "grey90")
+    )
+
+  # Save plot
+  ggsave(filename = paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiensorderedprovincia.plot.K", k, ".pdf"),
+         plot = admix_plot, width = 50, height = 15, units = "cm")
+}
+
+
+```
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(readr)
+
+# 1. Read the .fam file
+fam <- read.table("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.fam", sep = " ",
+                  col.names = c("FID", "IID", "father", "mother", "sex", "pheno")) %>%
+  select(IID)
+
+# 2. Read the metadata with correct delimiter
+metadata <- read_delim("/Users/Mari/Desktop/Admixture PipiensMayo2025/Locsamples.csv", delim = ";")
+
+# 3. Merge metadata into fam data, handle missing LOC/Provincia
+samples <- fam %>%
+  left_join(metadata, by = c("IID" = "ID")) %>%
+  mutate(
+    LOC = ifelse(is.na(LOC), "Unknown", LOC),
+    Provincia = ifelse(is.na(Provincia), "Unknown", Provincia)
+  )
+
+# 4. Loop through K values
+for (k in 2:5) {
+  # Read Q values
+  qvals <- read.table(paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiens1234_all_PCA.", k, ".Q"),
+                      col.names = paste0("Q", seq_len(k)))
+
+  # Check for row consistency
+  if (nrow(qvals) != nrow(samples)) {
+    stop(paste("Mismatch: Q file (", nrow(qvals), ") rows != samples (", nrow(samples), ") at K =", k))
+  }
+
+  # Combine metadata + Q values
+  admix <- bind_cols(samples, qvals)
+
+  # Order by Provincia, then LOC
+  admix <- admix %>%
+    arrange(Provincia, LOC) %>%
+    mutate(IID = factor(IID, levels = unique(IID)))
+
+  # Reshape data for plotting
+  admix_long <- admix %>%
+    pivot_longer(cols = starts_with("Q"), names_to = "Q", values_to = "value")
+
+  # Create plot
+  admix_plot <- ggplot(admix_long, aes(x = IID, y = value, fill = Q)) +
+    geom_bar(stat = "identity", position = "stack") +
+    xlab("Individual") + ylab("Ancestry") +
+    facet_grid(. ~ LOC, scales = "free_x", space = "free_x") +
+    theme_bw() +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+      panel.spacing = unit(0.3, "lines"),
+      strip.text.x = element_text(size = 10, face = "bold")
+    )
+
+  # Save plot with updated name
+  ggsave(filename = paste0("/Users/Mari/Desktop/Admixture PipiensMayo2025/pipiensorderedprovincia.plot.K", k, ".pdf"),
+         plot = admix_plot, width = 45, height = 12, units = "cm")
+}
+
+```
+
+
